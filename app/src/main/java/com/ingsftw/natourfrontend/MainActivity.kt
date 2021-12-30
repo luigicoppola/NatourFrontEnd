@@ -10,6 +10,74 @@ import okhttp3.*
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager
+import androidx.fragment.app.Fragment
+
+
+
+
+
+class MainActivity : AppCompatActivity() {
+
+
+    private val client = OkHttpClient()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_registrazione)
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+        val viewPager: ViewPager2 = findViewById(R.id.view_pager2)
+
+        val fragments: ArrayList<Fragment> = arrayListOf(
+            //ItemUno(),
+            fragment_item_due()
+
+
+        )
+
+        var email = findViewById<EditText>(R.id.email)
+        var emaildue = findViewById<EditText>(R.id.email)
+
+
+
+
+
+
+
+
+        val adapter = ViewPagerAdapter(fragments, this)
+        viewPager.adapter = adapter
+
+
+        val indicator = findViewById<CircleIndicator3>(R.id.indicator)
+        indicator.setViewPager(viewPager)
+
+        val continua = findViewById(R.id.continua_button) as Button
+
+        continua.setOnClickListener {
+
+            viewPager.apply {
+                beginFakeDrag()
+                fakeDragBy(-10f)
+                endFakeDrag()
+
+            }
+
+
+        }
+
+    }
+    }
+
+
+
+
+
+
+
+/*
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +92,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    private var titleList = mutableListOf<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +101,34 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        postToList()
+        //postToList()
         val viewPager: ViewPager2 = findViewById(R.id.view_pager2)
 
 
         viewPager.adapter = ViewPagerAdapter(titleList, descList, imageList)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+
+
+     viewPager.adapter = ViewPagerAdapter(titleList)
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+
+
+
+
+
+        val fragments: ArrayList<Fragment> = arrayListOf(
+           ItemUno(),
+           fragment_item_due()
+
+
+        )
+
+        val adapter = ViewPagerAdapter(fragments,this)
+        viewPager.adapter = adapter
+
+
 
 
 
@@ -59,6 +151,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
+    private fun addToList(title: String) {
+        titleList.add(title)
+    }
+
+
+
+    private fun postToList() {
+        for (i in 1..3) {
+
+            addToList("Titolo $i")
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
     private fun addToList(title: String, description: String, image: Int) {
         titleList.add(title)
         descList.add(description)
@@ -76,7 +194,7 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-/*
+
 
        val email = findViewById(R.id.email) as EditText
         val continua = findViewById(R.id.continua) as Button
@@ -100,14 +218,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-*/
 
-/*
+
     fun register(view: View){
         run("http://10.0.2.2:8080/utente/all")
     }
-*/
-/*
+
 fun run(url: String){
 
     var testo= findViewById(R.id.editTextTextEmailAddress2) as TextView
@@ -124,8 +240,7 @@ fun run(url: String){
 }
 
 
- */
-
+*/
 
 
 
