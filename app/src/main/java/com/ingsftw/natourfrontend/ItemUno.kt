@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import android.widget.RelativeLayout
+import java.util.regex.Pattern
+
+import androidx.core.view.marginBottom
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,10 +45,57 @@ class ItemUno : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+       var v = inflater.inflate(R.layout.fragment_item_uno, container, false)
+        var continua = requireActivity().findViewById<View>(R.id.continua_button) as Button
+
+        var email = v.findViewById<EditText>(R.id.emailText)
+        var passw = v.findViewById<EditText>(R.id.passwordText)
+
+        val lp = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.WRAP_CONTENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        lp.setMargins(email.marginLeft,0,email.marginRight,email.marginBottom)
+
+
+        val lp2 = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.WRAP_CONTENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        lp2.setMargins(100,500,10,continua.marginBottom)
+
+
+        passw.isFocusableInTouchMode =false
+
+
+
+      /*  continua.setOnClickListener {
+            if(isEmailValid(email.text.toString())) {
+                passw.isFocusableInTouchMode =true
+
+            }
+            else
+                email.setText("errore")
+
+        }
+*/
+
+
+
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_uno, container, false)
+        return v
     }
+
+
+
+    fun isEmailValid(email: String?): Boolean {
+        val regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
+        val p: Pattern = Pattern.compile(regex);
+        return p.matcher(email.toString()).matches();
+    }
+
+
 
     companion object {
         /**
@@ -60,5 +115,9 @@ class ItemUno : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
     }
+
+
+
 }

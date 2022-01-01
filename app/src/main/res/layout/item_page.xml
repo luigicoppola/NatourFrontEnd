@@ -15,7 +15,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -29,5 +29,6 @@
         android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Password"
+        android:visibility="gone"
         android:inputType="textPassword" />
 </RelativeLayout>

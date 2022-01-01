@@ -8,37 +8,30 @@
     <View
         android:id="@+id/view7"
         android:layout_width="411dp"
-        android:layout_height="251dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="381dp"
+        android:layout_height="276dp"
         android:foreground="@drawable/foregroundapp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/IntestazioneLayout"
         android:layout_width="413dp"
-        android:layout_height="82dp"
-        android:layout_marginBottom="296dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view7"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
 
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view7">
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="0dp"
             android:text="Registrati a NaTour"
             android:textColor="#00000F"
             android:textSize="30sp" />
@@ -48,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="35dp"
             android:text="oppure"
             android:textColor="#00000F"
             android:textSize="20sp" />
@@ -58,234 +51,240 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="88dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="35dp"
             android:text="accedi"
             android:textColor="#26D8C3"
             android:textSize="20sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
-
     <RelativeLayout
-        android:id="@+id/social"
-        android:layout_width="408dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+
+        android:id="@+id/socialLayout"
+        android:layout_width="411dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        >
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/formLayout">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:gravity="center"
-            android:text="Oppure continua con ..."
+            android:id="@+id/sociallogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/accedilogin"
             android:textColor="#00000F" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="67dp"
-            android:layout_height="65dp"
+            android:id="@+id/googleButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="41dp"
             android:backgroundTint="#00FFFFFF"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/google" />
 
         <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="67dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="41dp"
+            android:id="@+id/facebookButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
             android:backgroundTint="#00FFFFFF"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/facebook" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="67dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="41dp"
+            android:id="@+id/twitterButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="250dp"
+
+            android:layout_marginRight="100dp"
             android:backgroundTint="#00FFFFFF"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/twitter" />
     </RelativeLayout>
-<!--
+
     <RelativeLayout
-        android:id="@+id/Due"
-        android:layout_width="409dp"
-        android:layout_height="176dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/social"
+        android:id="@+id/formLayout"
+        android:layout_width="413dp"
+        android:layout_height="221dp"
+        app:layout_constraintBottom_toTopOf="@+id/socialLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="25dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="70dp"
-            android:ems="10"
-            android:hint="Nascita"
-            android:inputType="date" />
-
-        <Button
-            android:id="@+id/registrati"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="130dp"
-            android:text="Registrati" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/Uno"
-
-        android:layout_width="409dp"
-         android:layout_height="176dp"
-         android:layout_marginStart="1dp"
-         android:layout_marginTop="1dp"
-         android:layout_marginEnd="1dp"
-         android:layout_marginBottom="1dp"
-         app:layout_constraintBottom_toTopOf="@+id/social"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
-         <EditText
-             android:id="@+id/email"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="85dp"
-             android:layout_marginTop="45dp"
-             android:ems="10"
-             android:hint="Email"
-             android:inputType="textEmailAddress" />
-
-         <Button
-             android:id="@+id/continua"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="150dp"
-             android:layout_marginTop="100dp"
-             android:text="Continua" />
-     </RelativeLayout><![CDATA[
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         ->
-
-
-
-
-
-
-
-
-
-
-
-
-             />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- ]]>
--->
-
-    <RelativeLayout
-        android:layout_width="411dp"
-        android:layout_height="256dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/social"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        tools:context=".MainActivity">
+        app:layout_constraintTop_toBottomOf="@+id/IntestazioneLayout">
 
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="132dp"
+            android:layout_width="412dp"
+            android:layout_height="23dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="17dp"
+            android:layout_marginBottom="65dp"
             app:ci_drawable="@drawable/navigationview">
 
         </me.relex.circleindicator.CircleIndicator3>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="147dp"
 
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="-135dp" />
 
         <Button
             android:id="@+id/continua_button"
-            android:layout_width="339dp"
+            android:layout_width="366dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="165dp"
             android:background="@drawable/button_style"
-            android:text="Continua" />
+            android:text="Continua"
+            android:textColor="#FFFFFF" />
+
 
     </RelativeLayout>
+
+
+    <!--
+        <RelativeLayout
+            android:id="@+id/Due"
+            android:layout_width="409dp"
+            android:layout_height="176dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/social"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="70dp"
+                android:ems="10"
+                android:hint="Nascita"
+                android:inputType="date" />
+
+            <Button
+                android:id="@+id/registrati"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="130dp"
+                android:text="Registrati" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Uno"
+
+            android:layout_width="409dp"
+             android:layout_height="176dp"
+             android:layout_marginStart="1dp"
+             android:layout_marginTop="1dp"
+             android:layout_marginEnd="1dp"
+             android:layout_marginBottom="1dp"
+             app:layout_constraintBottom_toTopOf="@+id/social"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+             <EditText
+                 android:id="@+id/email"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="85dp"
+                 android:layout_marginTop="45dp"
+                 android:ems="10"
+                 android:hint="Email"
+                 android:inputType="textEmailAddress" />
+
+             <Button
+                 android:id="@+id/continua"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="150dp"
+                 android:layout_marginTop="100dp"
+                 android:text="Continua" />
+         </RelativeLayout><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             ->
+
+
+
+
+
+
+
+
+
+
+
+
+                 />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     ]]>
+    -->
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemUno">
+    tools:context=".tre">
 
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/nomeText"
         android:layout_width="366dp"
         android:layout_height="52dp"
         android:layout_centerHorizontal="true"
@@ -32,22 +31,7 @@
         android:drawablePadding="20dp"
         android:ems="10"
         android:hint="Data"
-        android:paddingLeft="10dp" />
-
-
-    <!--<EditText
-        android:id="@+id/datePick"
-        android:layout_width="366dp"
-        android:layout_height="52dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/edittext_style"
-        android:ems="10"
-        android:hint="Password"
         android:inputType="date"
         android:paddingLeft="10dp" />
--->
-
 
 </RelativeLayout>

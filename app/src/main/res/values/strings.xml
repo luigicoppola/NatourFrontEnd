@@ -2,4 +2,8 @@
     <string name="app_name">NatourFrontEnd</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="accedilogin">Oppure continua con ...</string>
+    <string name="registraButton">Continua</string>
+    <string name="calendario">dd/mm/yyyy</string>
+
 </resources>
