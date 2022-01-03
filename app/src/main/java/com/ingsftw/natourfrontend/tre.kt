@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import java.lang.reflect.Array.get
 import java.time.Instant.now
 import java.util.*
@@ -38,10 +39,11 @@ class tre : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        var v = inflater.inflate(R.layout.fragment_tre, container, false)
+        var continua = requireActivity().findViewById<View>(R.id.continua_button) as Button
+        continua.setText("Registrati")
 
-
-
-        return inflater.inflate(R.layout.fragment_tre, container, false)
+        return v
     }
 
     companion object {

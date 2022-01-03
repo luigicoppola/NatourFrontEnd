@@ -18,7 +18,8 @@
         android:drawablePadding="20dp"
         android:ems="10"
         android:hint="Email"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        />
 
 
     <EditText

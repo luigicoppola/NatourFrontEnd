@@ -13,6 +13,8 @@ import java.util.regex.Pattern
 import androidx.core.view.marginBottom
 import androidx.core.view.marginLeft
 import androidx.core.view.marginRight
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -51,7 +53,22 @@ class ItemUno : Fragment() {
         var email = v.findViewById<EditText>(R.id.emailText)
         var passw = v.findViewById<EditText>(R.id.passwordText)
 
-        val lp = RelativeLayout.LayoutParams(
+
+        continua.setText("Continua")
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* val lp = RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
             RelativeLayout.LayoutParams.WRAP_CONTENT
         )
@@ -68,17 +85,22 @@ class ItemUno : Fragment() {
         passw.isFocusableInTouchMode =false
 
 
-
-      /*  continua.setOnClickListener {
-            if(isEmailValid(email.text.toString())) {
-                passw.isFocusableInTouchMode =true
-
-            }
-            else
-                email.setText("errore")
-
-        }
 */
+
+
+
+
+
+        /*  continua.setOnClickListener {
+              if(isEmailValid(email.text.toString())) {
+                  passw.isFocusableInTouchMode =true
+
+              }
+              else
+                  email.setText("errore")
+
+          }
+  */
 
 
 

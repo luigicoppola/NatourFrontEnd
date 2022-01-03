@@ -1,6 +1,7 @@
 package com.ingsftw.natourfrontend
 
 
+import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -27,6 +28,8 @@ import org.json.JSONObject
 
 import retrofit2.Response
 import retrofit2.Retrofit
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 
 
 class MainActivity : AppCompatActivity() {
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         )
 
+
         val adapter = ViewPagerAdapter(fragments, this)
         viewPager.adapter = adapter
 
@@ -64,22 +68,96 @@ class MainActivity : AppCompatActivity() {
 
         val registrazioneButton = findViewById(R.id.continua_button) as Button
 
-        var email = findViewById<EditText>(R.id.emailText)
-        var password = findViewById<EditText>(R.id.passwordText)
-        var nomeCompleto = findViewById<EditText>(R.id.nomeText)
-        var dataNascita = findViewById<EditText>(R.id.Date)
+
         var continua = findViewById<Button>(R.id.continua_button)
+
+
+
+        if (viewPager.currentItem == 0)
+            continua.setText("Continua")
+        else
+            continua.setText("Registrati")
+
+
+
+
+
 
 
 
         registrazioneButton.setOnClickListener {
 
-          createUser()
 
-            }
+                if (viewPager.currentItem == 0) {
+
+                    viewPager.setCurrentItem(1, true)
+                }
+
+                else {
+
+                    createUser()
+
+
+                }
+
+
         }
 
-    fun createUser() {
+
+
+
+
+        viewPager?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if(position==0){
+
+                    continua.setText("Continua")}
+                else{
+
+                    continua.setText("Registrati")
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+
+                var email = findViewById<EditText>(R.id.emailText)
+                var passw = findViewById<EditText>(R.id.passwordText)
+                var nomeCompleto = findViewById<EditText>(R.id.nomeText)
+                var dataNascita = findViewById<EditText>(R.id.Date)
+
+            }
+
+            override fun onPageScrolled(position: Int,
+                                        positionOffset: Float,
+                                        positionOffsetPixels: Int) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    private fun createUser() {
 
         // Create Retrofit
         val retrofit = Retrofit.Builder()
@@ -89,12 +167,26 @@ class MainActivity : AppCompatActivity() {
         // Create Service
         val service = retrofit.create(RestApi::class.java)
 
+
+
+
+
+
+
+        var email = findViewById<EditText>(R.id.emailText)
+        var passw = findViewById<EditText>(R.id.passwordText)
+        var nomeCompleto = findViewById<EditText>(R.id.nomeText)
+        var dataNascita = findViewById<EditText>(R.id.Date)
+
+
+
+
         // Create JSON using JSONObject
         val jsonObject = JSONObject()
-        jsonObject.put("email", "mimmo@gmail.com")
-        jsonObject.put("password", "Androide3@2")
-        jsonObject.put("nomeCompleto", "ciao bello")
-        jsonObject.put("dataNascita", "23/11/2000")
+        jsonObject.put("email", email.text.toString())
+        jsonObject.put("password", passw.text.toString())
+        jsonObject.put("nomeCompleto", nomeCompleto.text.toString())
+        jsonObject.put("dataNascita", dataNascita.text.toString())
 
         // Convert JSONObject to String
         val jsonObjectString = jsonObject.toString()
@@ -117,12 +209,12 @@ class MainActivity : AppCompatActivity() {
                                 ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
                         )
                     )
-                    Toast.makeText(this@MainActivity,"ok",Toast.LENGTH_LONG)
+                    Toast.makeText(this@MainActivity, "ok", Toast.LENGTH_LONG)
                     Log.d("Pretty Printed JSON :", prettyJson)
 
 
                 } else {
-                    Toast.makeText(this@MainActivity,"eRRORE",Toast.LENGTH_LONG)
+                    Toast.makeText(this@MainActivity, "eRRORE", Toast.LENGTH_LONG)
                     Log.e("RETROFIT_ERROR", response.code().toString())
 
                 }
@@ -131,11 +223,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
+
+
+
 }
-
-
-
-
 
 
 /*
@@ -168,7 +261,7 @@ class MainActivity : AppCompatActivity() {
 
 */
 
-                    
+
 
 
 

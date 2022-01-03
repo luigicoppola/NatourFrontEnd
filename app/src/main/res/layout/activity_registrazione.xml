@@ -168,7 +168,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="wrap_content"
@@ -178,7 +177,6 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name" />
-
             <EditText
                 android:id="@+id/editTextDate"
                 android:layout_width="wrap_content"
@@ -188,7 +186,6 @@
                 android:ems="10"
                 android:hint="Nascita"
                 android:inputType="date" />
-
             <Button
                 android:id="@+id/registrati"
                 android:layout_width="wrap_content"
@@ -197,10 +194,8 @@
                 android:layout_marginTop="130dp"
                 android:text="Registrati" />
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/Uno"
-
             android:layout_width="409dp"
              android:layout_height="176dp"
              android:layout_marginStart="1dp"
@@ -211,7 +206,6 @@
              app:layout_constraintEnd_toEndOf="parent"
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
              <EditText
                  android:id="@+id/email"
                  android:layout_width="wrap_content"
@@ -221,7 +215,6 @@
                  android:ems="10"
                  android:hint="Email"
                  android:inputType="textEmailAddress" />
-
              <Button
                  android:id="@+id/continua"
                  android:layout_width="wrap_content"
@@ -230,57 +223,8 @@
                  android:layout_marginTop="100dp"
                  android:text="Continua" />
          </RelativeLayout><![CDATA[
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
              ->
-
-
-
-
-
-
-
-
-
-
-
-
                  />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
      ]]>
     -->
 
