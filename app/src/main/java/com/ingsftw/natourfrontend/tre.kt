@@ -1,13 +1,13 @@
 package com.ingsftw.natourfrontend
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import java.lang.reflect.Array.get
-import java.time.Instant.now
+import android.widget.Toast
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +31,11 @@ class tre : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+        val istanza = ItemUno.newInstance("NAME","PASSWORD")
+
+        Log.d(istanza.getString(0,String),"eccola")
     }
 
     override fun onCreateView(
@@ -40,7 +45,7 @@ class tre : Fragment() {
         // Inflate the layout for this fragment
 
         var v = inflater.inflate(R.layout.fragment_tre, container, false)
-        var continua = requireActivity().findViewById<View>(R.id.continua_button) as Button
+        var continua = requireActivity().findViewById<View>(R.id.accedi_button) as Button
         continua.setText("Registrati")
 
         return v

@@ -7,14 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RelativeLayout
 import java.util.regex.Pattern
 
-import androidx.core.view.marginBottom
-import androidx.core.view.marginLeft
-import androidx.core.view.marginRight
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
+import java.util.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +23,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ItemUno : Fragment() {
+
+
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -48,63 +46,11 @@ class ItemUno : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        var v = inflater.inflate(R.layout.fragment_item_uno, container, false)
-        var continua = requireActivity().findViewById<View>(R.id.continua_button) as Button
+        var continua = requireActivity().findViewById<Button>(R.id.accedi_button)
 
         var email = v.findViewById<EditText>(R.id.emailText)
         var passw = v.findViewById<EditText>(R.id.passwordText)
-
-
         continua.setText("Continua")
-
-
-
-
-
-
-
-
-
-
-
-
-
-       /* val lp = RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.WRAP_CONTENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
-        )
-        lp.setMargins(email.marginLeft,0,email.marginRight,email.marginBottom)
-
-
-        val lp2 = RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.WRAP_CONTENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
-        )
-        lp2.setMargins(100,500,10,continua.marginBottom)
-
-
-        passw.isFocusableInTouchMode =false
-
-
-*/
-
-
-
-
-
-        /*  continua.setOnClickListener {
-              if(isEmailValid(email.text.toString())) {
-                  passw.isFocusableInTouchMode =true
-
-              }
-              else
-                  email.setText("errore")
-
-          }
-  */
-
-
-
-
         // Inflate the layout for this fragment
         return v
     }
@@ -130,11 +76,14 @@ class ItemUno : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+
+
+
+        fun newInstance(email: String, password: String) =
             ItemUno().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, email)
+                    putString(ARG_PARAM2, password)
                 }
             }
 

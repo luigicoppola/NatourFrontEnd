@@ -1,7 +1,6 @@
 package com.ingsftw.natourfrontend
 
 
-import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -15,7 +14,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 import android.widget.EditText
-import com.google.firebase.auth.UserInfo
+import androidx.fragment.app.DialogFragment.STYLE_NO_FRAME
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -26,10 +25,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
-import retrofit2.Response
 import retrofit2.Retrofit
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,18 +33,50 @@ class MainActivity : AppCompatActivity() {
 
     private val client = OkHttpClient()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrazione)
 
+        // -------------------- GESTIONE LOGIN ---------------------------------
+
+        var accedi = findViewById<TextView>(R.id.accediLinkText)
+        accedi.setOnClickListener() {
+            var dialog = PopupLogin()
+            dialog.setStyle(STYLE_NO_FRAME, android.R.style.ThemeOverlay);
+            dialog.show(supportFragmentManager, "PopupLogin")
+        }
+
+        // -------------------- FINE GESTIONE LOGIN --------------------------- //
+
+
+    }
+
+        // -------------------- GESTIONE REGISTRAZIONE ------------------------ //
+
+
+
+
+
+
+
+
+
+
+
+        // -------------------- FINE GESTIONE REGISTRAZIONE --------------------------- //
+
+}
+
+
+
+
+
+
+
 /*
-        var email = findViewById<EditText>(R.id.nomeCompleto)
-        var passw = findViewById<EditText>(R.id.passwordText)
-        var continua = findViewById<Button>(R.id.continua_button)
-
-*/
-
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
 
         val viewPager: ViewPager2 = findViewById(R.id.view_pager2)
 
@@ -60,17 +88,25 @@ class MainActivity : AppCompatActivity() {
         )
 
 
+
+
         val adapter = ViewPagerAdapter(fragments, this)
+
         viewPager.adapter = adapter
 
 
         val indicator = findViewById<CircleIndicator3>(R.id.indicator)
 
-        val registrazioneButton = findViewById(R.id.continua_button) as Button
+        val registrazioneButton = findViewById(R.id.accedi_button) as Button
 
 
-        var continua = findViewById<Button>(R.id.continua_button)
+        val email = findViewById<EditText>(R.id.emailText)
+        val passw = findViewById<EditText>(R.id.passwordText)
+        val nomeCompleto = findViewById<EditText>(R.id.nomeText)
+        val dataNascita = findViewById<EditText>(R.id.Date)
 
+
+        var continua = findViewById<Button>(R.id.accedi_button)
 
 
         if (viewPager.currentItem == 0)
@@ -83,68 +119,58 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
         registrazioneButton.setOnClickListener {
 
 
-                if (viewPager.currentItem == 0) {
 
-                    viewPager.setCurrentItem(1, true)
-                }
+        if (viewPager.currentItem == 0) {
 
-                else {
+            viewPager.setCurrentItem(1, true)
+        } else
+            createUser(
+                email.text.toString(),
+                passw.toString(),
+                nomeCompleto.text.toString(),
+                dataNascita.text.toString()
+            )
 
-                    createUser()
+
+    }
 
 
-                }
+
+
+
+
+
+    viewPager?.registerOnPageChangeCallback(
+    object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            super.onPageSelected(position)
+            if (position == 0) {
+
+                continua.setText("Continua")
+            } else {
+
+                continua.setText("Registrati")
+
+            }
+        }
+
+        override fun onPageScrollStateChanged(state: Int) {
+            super.onPageScrollStateChanged(state)
 
 
         }
 
-
-
-
-
-        viewPager?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if(position==0){
-
-                    continua.setText("Continua")}
-                else{
-
-                    continua.setText("Registrati")
-                }
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-
-                var email = findViewById<EditText>(R.id.emailText)
-                var passw = findViewById<EditText>(R.id.passwordText)
-                var nomeCompleto = findViewById<EditText>(R.id.nomeText)
-                var dataNascita = findViewById<EditText>(R.id.Date)
-
-            }
-
-            override fun onPageScrolled(position: Int,
-                                        positionOffset: Float,
-                                        positionOffsetPixels: Int) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-            }
-        })
-
-
-
-
-
-
-
-
-
-
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) {
+            super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+        }
+    })
 
 
 
@@ -157,7 +183,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun createUser() {
+}
+
+    private fun createUser(email: String, passw: String, nomeCompleto : String, dataNascita: String) {
 
         // Create Retrofit
         val retrofit = Retrofit.Builder()
@@ -170,23 +198,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-        var email = findViewById<EditText>(R.id.emailText)
-        var passw = findViewById<EditText>(R.id.passwordText)
-        var nomeCompleto = findViewById<EditText>(R.id.nomeText)
-        var dataNascita = findViewById<EditText>(R.id.Date)
-
-
-
-
         // Create JSON using JSONObject
         val jsonObject = JSONObject()
-        jsonObject.put("email", email.text.toString())
-        jsonObject.put("password", passw.text.toString())
-        jsonObject.put("nomeCompleto", nomeCompleto.text.toString())
-        jsonObject.put("dataNascita", dataNascita.text.toString())
+        jsonObject.put("email",email)
+        jsonObject.put("password", passw)
+        jsonObject.put("nomeCompleto", nomeCompleto)
+        jsonObject.put("dataNascita", dataNascita)
 
         // Convert JSONObject to String
         val jsonObjectString = jsonObject.toString()
@@ -209,12 +226,10 @@ class MainActivity : AppCompatActivity() {
                                 ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
                         )
                     )
-                    Toast.makeText(this@MainActivity, "ok", Toast.LENGTH_LONG)
                     Log.d("Pretty Printed JSON :", prettyJson)
 
 
                 } else {
-                    Toast.makeText(this@MainActivity, "eRRORE", Toast.LENGTH_LONG)
                     Log.e("RETROFIT_ERROR", response.code().toString())
 
                 }
@@ -224,11 +239,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+*/
 
-
-
-
-}
 
 
 /*
@@ -259,6 +271,11 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+
+
+
+
+
 */
 
 
@@ -283,13 +300,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
 /*
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -450,9 +462,5 @@ fun run(url: String){
     })
 
 }
-
-
 */
-
-
 

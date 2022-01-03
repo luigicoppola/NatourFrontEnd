@@ -13,6 +13,10 @@ interface RestApi {
 
     @POST("auth/registrazione")
     suspend fun createUser(@Body requestBody: RequestBody): Response<ResponseBody>
+
+
+    @POST("auth/login")
+    suspend fun login(@Body requestBody: RequestBody): Response<ResponseBody>
 }
 
 
