@@ -2,30 +2,15 @@ package com.ingsftw.natourfrontend
 
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import okhttp3.*
+import java.util.*
+
+import androidx.fragment.app.DialogFragment.STYLE_NO_FRAME
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import me.relex.circleindicator.CircleIndicator3
-import okhttp3.*
-import android.view.WindowManager
-import androidx.fragment.app.Fragment
-import java.util.*
-import kotlin.collections.ArrayList
-
-import android.widget.EditText
-import androidx.fragment.app.DialogFragment.STYLE_NO_FRAME
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonParser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import org.json.JSONObject
-
-import retrofit2.Retrofit
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registrazione)
+        setContentView(R.layout.activity_main)
 
         // -------------------- GESTIONE LOGIN ---------------------------------
 
@@ -49,10 +34,88 @@ class MainActivity : AppCompatActivity() {
 
         // -------------------- FINE GESTIONE LOGIN --------------------------- //
 
+        val viewPager: ViewPager2 = findViewById(R.id.view_pager2)
+
+        val fragments: ArrayList<Fragment> = arrayListOf(
+            SwipeItemUno(),
+            SwipeItemDue()
+        )
+
+        val adapter = ViewPagerAdapter(fragments, this)
+        viewPager.adapter = adapter
+
+        val indicator = findViewById<CircleIndicator3>(R.id.indicator)
+
+
+
+
+
+
+
+        /*val registrazioneButton = findViewById(R.id.accedi_button) as Button
+
+
+
+        val email = findViewById<EditText>(R.id.emailText)
+        val passw = findViewById<EditText>(R.id.passwordText)
+        val nomeCompleto = findViewById<EditText>(R.id.nomeText)
+        val dataNascita = findViewById<EditText>(R.id.Date)*/
+
+
+        var continua = findViewById<Button>(R.id.accedi_button)
+
+       continua.setOnClickListener{
+           indicator.setViewPager(viewPager)
+           viewPager.setCurrentItem(1, true)
+
+
+       }
+
+
+
+
+
+
+
+
+        viewPager?.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    if (position == 0) {
+                        continua.setText("Continua")
+                    } else {
+
+                        continua.setText("Registrati")
+
+                    }
+                }
+
+                override fun onPageScrollStateChanged(state: Int) {
+                    super.onPageScrollStateChanged(state)
+
+
+                }
+
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                    super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                }
+            })
+
+
+        // -------------------- GESTIONE REGISTRAZIONE ------------------------ //
 
     }
 
-        // -------------------- GESTIONE REGISTRAZIONE ------------------------ //
+
+
+
+
+
 
 
 

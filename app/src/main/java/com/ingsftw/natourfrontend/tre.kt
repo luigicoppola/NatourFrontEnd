@@ -33,9 +33,7 @@ class tre : Fragment() {
         }
 
 
-        val istanza = ItemUno.newInstance("NAME","PASSWORD")
 
-        Log.d(istanza.getString(0,String),"eccola")
     }
 
     override fun onCreateView(
