@@ -1,19 +1,40 @@
 package com.ingsftw.natourfrontend
 
 
+import android.graphics.Color
+import android.graphics.Color.red
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
 import okhttp3.*
 import java.util.*
 
 import androidx.fragment.app.DialogFragment.STYLE_NO_FRAME
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import me.relex.circleindicator.CircleIndicator3
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import retrofit2.Retrofit
+import android.graphics.drawable.GradientDrawable
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
+
 
 
     private val client = OkHttpClient()
@@ -47,90 +68,199 @@ class MainActivity : AppCompatActivity() {
         val indicator = findViewById<CircleIndicator3>(R.id.indicator)
 
 
+        //val registrazioneButton = findViewById(R.id.accedi_button) as Button
 
 
 
 
-
-        /*val registrazioneButton = findViewById(R.id.accedi_button) as Button
-
-
-
-        val email = findViewById<EditText>(R.id.emailText)
-        val passw = findViewById<EditText>(R.id.passwordText)
-        val nomeCompleto = findViewById<EditText>(R.id.nomeText)
-        val dataNascita = findViewById<EditText>(R.id.Date)*/
-
+        var email_input = findViewById<EditText>(R.id.emailText)
 
         var continua = findViewById<Button>(R.id.accedi_button)
 
-       continua.setOnClickListener{
-           indicator.setViewPager(viewPager)
-           viewPager.setCurrentItem(1, true)
+        var email=""
+        var passw=""
+        var nomeCompleto=""
+        var dataNascita=""
 
+            viewPager?.registerOnPageChangeCallback(
+                object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        super.onPageSelected(position)
+                        if (position == 0) {
+                            continua.setText("Continua")
+                        }
+                        else {
 
-       }
+                            continua.setText("Registrati")
 
+                        }
+                    }
 
+                    override fun onPageScrollStateChanged(state: Int) {
+                        super.onPageScrollStateChanged(state)
 
-
-
-
-
-
-        viewPager?.registerOnPageChangeCallback(
-            object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    if (position == 0) {
-                        continua.setText("Continua")
-                    } else {
-
-                        continua.setText("Registrati")
 
                     }
-                }
 
-                override fun onPageScrollStateChanged(state: Int) {
-                    super.onPageScrollStateChanged(state)
+                    override fun onPageScrolled(
+                        position: Int,
+                        positionOffset: Float,
+                        positionOffsetPixels: Int
+                    ) {
+                        super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                    }
+                })
 
 
-                }
 
-                override fun onPageScrolled(
-                    position: Int,
-                    positionOffset: Float,
-                    positionOffsetPixels: Int
-                ) {
-                    super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                }
-            })
+
+
+
+
+        continua.setOnClickListener {
+
+
+            if(findViewById<EditText>(R.id.emailText)!=null) {
+                email = findViewById<EditText>(R.id.emailText).text.toString()
+                email_input= findViewById<EditText>(R.id.emailText)
+
+            }
+
+            if(findViewById<EditText>(R.id.passwordText)!=null)
+                passw=findViewById<EditText>(R.id.passwordText).text.toString()
+
+
+            if(findViewById<EditText>(R.id.nomeText)!=null )
+               nomeCompleto = findViewById<EditText>(R.id.nomeText).text.toString()
+
+
+
+            if(findViewById<EditText>(R.id.dataNascita)!=null)
+                dataNascita=findViewById<EditText>(R.id.dataNascita).text.toString()
+
+
+
+
+             indicator.setViewPager(viewPager)
+             viewPager.setCurrentItem(1, true)
+
+
+
+             if (continua.getText()=="Registrati"){
+
+
+                 if(email==""){
+                     //
+
+
+                 }
+
+                 if(passw==""){
+                     //
+
+                 }
+
+                 if(nomeCompleto==""){
+                     // Toast.makeText(this,"Email mancante.",Toast.LENGTH_LONG).show()
+
+                 }
+
+                 if(dataNascita==""){
+                    // Toast.makeText(this,"Email mancante.",Toast.LENGTH_LONG).show()
+
+                 }
+
+    //                createUser(email,passw,nomeCompleto,dataNascita)
+
+             }
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // -------------------- GESTIONE REGISTRAZIONE ------------------------ //
 
-    }
 
 
+    fun createUser(email: String, passw: String, nomeCompleto: String, dataNascita: String) {
+
+        // Create Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8080/")
+            .build()
+
+        // Create Service
+        val service = retrofit.create(RestApi::class.java)
 
 
+        // Create JSON using JSONObject
+        val jsonObject = JSONObject()
+        jsonObject.put("email", email)
+        jsonObject.put("password", passw)
+        jsonObject.put("nomeCompleto", nomeCompleto)
+        jsonObject.put("dataNascita", dataNascita)
+
+        // Convert JSONObject to String
+        val jsonObjectString = jsonObject.toString()
+
+        // Create RequestBody ( We're not using any converter, like GsonConverter, MoshiConverter e.t.c, that's why we use RequestBody )
+        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+
+        CoroutineScope(Dispatchers.IO).launch {
+            // Do the POST request and get response
+            val response = service.createUser(requestBody)
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+
+                    // Convert raw JSON to pretty JSON using GSON library
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(
+                            response.body()
+                                ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
+                        )
+                    )
+                    Log.d("Pretty Printed JSON :", prettyJson)
 
 
+                } else {
+                    Log.e("RETROFIT_ERROR", response.code().toString())
+
+                }
+            }
+        }
+    }}
 
 
-
-
-
-
-
-
-
-
-
-        // -------------------- FINE GESTIONE REGISTRAZIONE --------------------------- //
-
-}
-
+    // -------------------- FINE GESTIONE REGISTRAZIONE --------------------------- //
 
 
 

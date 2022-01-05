@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import java.util.regex.Pattern
 
 import java.util.*
@@ -50,6 +51,9 @@ class SwipeItemUno: Fragment() {
 
         var email = v.findViewById<EditText>(R.id.emailText)
         var passw = v.findViewById<EditText>(R.id.passwordText)
+
+
+
         continua.setText("Continua")
         // Inflate the layout for this fragment
         return v

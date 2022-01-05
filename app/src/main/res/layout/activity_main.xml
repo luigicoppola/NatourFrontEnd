@@ -11,7 +11,7 @@
     <View
         android:id="@+id/grafica"
         android:layout_width="match_parent"
-        android:layout_height="274dp"
+        android:layout_height="279dp"
         android:foreground="@drawable/foregroundapp" />
 
 
@@ -51,7 +51,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
-        android:layout_height="159dp"
+        android:layout_height="165dp"
         android:layout_below="@+id/intestazioneOppure"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp" />
@@ -70,12 +70,52 @@
     <Button
         android:id="@+id/accedi_button"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/indicator"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_style"
         android:text="Continua"
         android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/googleContinua"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_toLeftOf="@id/facebookContinua"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitXY"
+
+        app:srcCompat="@drawable/google" />
+
+    <ImageButton
+        android:id="@+id/facebookContinua"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/facebook" />
+
+    <ImageButton
+        android:id="@+id/twitterContinua"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_toRightOf="@id/facebookContinua"
+        android:backgroundTint="#000FFFFF"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/twitter" />
+
+    <TextView
+        android:id="@+id/intestazioneContinua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accedi_button"
+        android:layout_marginTop="7dp"
+        android:text="Oppure continua con ..."
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
