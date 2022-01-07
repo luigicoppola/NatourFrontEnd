@@ -7,6 +7,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/accediLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,47 +19,47 @@
             android:id="@+id/intestazioneLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_22sdp"
             android:text="Accedi a Natour"
             android:textColor="#00000F"
             android:textSize="30sp" />
 
         <EditText
-            android:id="@+id/emailText"
-            android:layout_width="366dp"
-            android:layout_height="56dp"
+            android:id="@+id/passwordText"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_33sdp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/_80sdp"
             android:background="@drawable/edittext_style"
-            android:drawableLeft="@drawable/email"
-            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/sms"
+            android:drawablePadding="@dimen/_10sdp"
             android:ems="10"
             android:hint="Email"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="@dimen/_10sdp" />
 
         <EditText
             android:id="@+id/passwordText"
-            android:layout_width="370dp"
-            android:layout_height="62dp"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_33sdp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="@dimen/_130sdp"
             android:background="@drawable/edittext_style"
             android:drawableLeft="@drawable/key"
             android:ems="10"
             android:hint="Password"
             android:inputType="textEmailAddress"
 
-            android:paddingLeft="10dp" />
+            android:paddingLeft="@dimen/_10sdp" />
 
         <Button
             android:id="@+id/accedi_button"
-            android:layout_width="366dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_33sdp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="@dimen/_180sdp"
             android:background="@drawable/button_style"
             android:text="Accedi"
             android:textColor="#FFFFFF" />
@@ -67,8 +68,8 @@
             android:id="@+id/closeLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:text="x"
             android:textColor="#00000F"
             android:textSize="34sp" />

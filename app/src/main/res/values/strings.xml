@@ -5,5 +5,7 @@
     <string name="accedilogin">Oppure continua con ...</string>
     <string name="registraButton">Continua</string>
     <string name="calendario">yyyy/mm/dd</string>
+    <string name="facebook_app_id">496476318500624</string>
+    <string name="fb_login_protocol_scheme">fb496476318500624</string>
 
 </resources>

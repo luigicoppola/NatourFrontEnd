@@ -1,4 +1,4 @@
-package com.ingsftw.natourfrontend;
+package com.ingsftw.natourfrontend.adapters;
 
 import android.app.Activity
 import android.view.LayoutInflater

@@ -5,14 +5,14 @@
     android:id="@+id/regoleCheck"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SwipeItemDue">
+    tools:context="fragments.SwipeItemDue">
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_42sdp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
 
@@ -22,24 +22,24 @@
 
         <EditText
             android:id="@+id/nomeText"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
             android:drawableLeft="@drawable/user"
-            android:drawablePadding="20dp"
+            android:drawablePadding="@dimen/_10sdp"
             android:ems="10"
             android:hint="NomeCompleto"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="@dimen/_10sdp" />
 
 
     </androidx.cardview.widget.CardView>
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_42sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
@@ -51,18 +51,18 @@
 
         <EditText
             android:id="@+id/dataNascita"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/emailText"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_below="@+id/passwordText"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
             android:drawableLeft="@drawable/calendar"
-            android:drawablePadding="20dp"
+            android:drawablePadding="@dimen/_10sdp"
             android:ems="10"
             android:hint="Data di Nascita"
             android:inputType="date"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="@dimen/_10sdp" />
 
 
     </androidx.cardview.widget.CardView>
@@ -71,8 +71,8 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_102sdp"
         android:text="Accetto Termini e Condizioni"
         android:textColor="#9E9E9E" />
 

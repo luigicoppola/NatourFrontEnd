@@ -1,4 +1,4 @@
-package com.ingsftw.natourfrontend
+package com.ingsftw.natourfrontend.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

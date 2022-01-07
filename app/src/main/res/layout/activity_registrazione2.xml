@@ -10,6 +10,7 @@
         android:layout_width="411dp"
         android:layout_height="276dp"
         android:foreground="@drawable/foregroundapp"
+        app:layout_constraintBottom_toTopOf="@+id/IntestazioneLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,9 +62,8 @@
     <RelativeLayout
 
         android:id="@+id/socialLayout"
-        android:layout_width="411dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="415dp"
+        android:layout_height="98dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -81,18 +81,19 @@
 
         <ImageButton
             android:id="@+id/googleButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_45sdp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/google" />
 
         <ImageButton
             android:id="@+id/facebookButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_45sdp"
             android:layout_centerInParent="true"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitXY"
@@ -100,12 +101,11 @@
 
         <ImageButton
             android:id="@+id/twitterButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_45sdp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="250dp"
 
-            android:layout_marginRight="100dp"
+            android:layout_marginLeft="@dimen/_190sdp"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/twitter" />
@@ -124,10 +124,11 @@
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
-            android:layout_width="412dp"
-            android:layout_height="23dp"
+            android:layout_width="@dimen/_410sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="65dp"
+            android:scrollbarSize="@dimen/_6sdp"
             app:ci_drawable="@drawable/navigationview">
 
         </me.relex.circleindicator.CircleIndicator3>

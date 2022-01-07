@@ -1,4 +1,4 @@
-package com.ingsftw.natourfrontend
+package com.ingsftw.natourfrontend.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import com.ingsftw.natourfrontend.R
 import java.util.regex.Pattern
 
 import java.util.*
@@ -49,7 +49,7 @@ class SwipeItemUno: Fragment() {
         var v = inflater.inflate(R.layout.swipeuno, container, false)
         var continua = requireActivity().findViewById<Button>(R.id.accedi_button)
 
-        var email = v.findViewById<EditText>(R.id.emailText)
+        var email = v.findViewById<EditText>(R.id.passwordText)
         var passw = v.findViewById<EditText>(R.id.passwordText)
 
 

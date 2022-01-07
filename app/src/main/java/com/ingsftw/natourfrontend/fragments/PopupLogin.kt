@@ -1,4 +1,4 @@
-package com.ingsftw.natourfrontend
+package com.ingsftw.natourfrontend.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
+import com.ingsftw.natourfrontend.R
+import com.ingsftw.natourfrontend.RestApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,7 +48,7 @@ class PopupLogin: DialogFragment() {
 
 
         accedi.setOnClickListener{
-            var email = rooterView.findViewById<EditText>(R.id.emailText).text.toString()
+            var email = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
             var passw = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
             login(email,passw)
         }
