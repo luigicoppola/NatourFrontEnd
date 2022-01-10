@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/coppg/AndroidStudioProjects/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/backgroundregister.xml" value="0.13472222222222222" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/button_style.xml" value="0.2625" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/calendar.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/edittext_style.xml" value="0.1972972972972973" />
@@ -14,14 +15,16 @@
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/navigationview2.xml" value="0.199609375" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/sms.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/user.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/wave.xml" value="0.13472222222222222" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/font/yantramanav_medium.xml" value="0.1769736842105263" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-large/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-normal/activity_main.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-normal/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-small/activity_main.xml" value="0.72" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-xlarge/activity_main.xml" value="0.16799999999999998" />
-        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.14924863387978143" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.72" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_login.xml" value="0.1875" />
-        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_main2.xml" value="0.176" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_registrazione.xml" value="0.264" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/activity_registrazione2.xml" value="0.4" />
@@ -45,7 +48,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="0.152" />
       </ProjectState>
     </option>
   </component>

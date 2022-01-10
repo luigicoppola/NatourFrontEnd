@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:="http://www.w3.org/2000/svg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/backgrounImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backgroundregister"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/intestazioneRegistrati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backgrounImage"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="138dp"
+        android:text="Registrati a NaTour"
+        android:textColor="#00000F"
+        android:textSize="30sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/intestazioneOppure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgrounImage" />
+
+    <TextView
+        android:id="@+id/intestazioneOppure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intestazioneRegistrati"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:text="oppure"
+        android:textColor="#00000F"
+        android:textSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/accediLinkText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intestazioneRegistrati" />
+
+    <TextView
+        android:id="@+id/accediLinkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intestazioneRegistrati"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="265dp"
+        android:text="accedi"
+        android:textColor="#26D8C3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/intestazioneOppure"
+        app:layout_constraintTop_toBottomOf="@+id/intestazioneRegistrati" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="203dp"
+        android:layout_below="@+id/intestazioneOppure"
+        android:scaleType="fitXY"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_17sdp"
+        android:layout_below="@+id/view_pager2"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
+        app:ci_drawable="@drawable/navigationview"
+        app:layout_constraintBottom_toTopOf="@+id/accedi_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </me.relex.circleindicator.CircleIndicator3>
+
+    <Button
+        android:id="@+id/accedi_button"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_below="@id/indicator"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/button_style"
+        android:scaleType="fitXY"
+        android:text="Continua"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:elevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/intestazioneContinua"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/intestazioneContinua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accedi_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="5dp"
+        android:text="Oppure continua con ..."
+        app:layout_constraintBottom_toTopOf="@+id/facebookContinua"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/facebookContinua"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:elevation="@dimen/_20sdp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/twitterContinua"
+        app:layout_constraintStart_toEndOf="@+id/googleContinua"
+        app:srcCompat="@drawable/iconfacebook" />
+
+    <ImageButton
+        android:id="@+id/googleContinua"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="102dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toLeftOf="@id/facebookContinua"
+        android:background="#00FFFFFF"
+        android:elevation="@dimen/_20sdp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/facebookContinua"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icongoogle" />
+
+    <ImageButton
+        android:id="@+id/twitterContinua"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@id/intestazioneContinua"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@id/facebookContinua"
+        android:background="#00FFFFFF"
+        android:elevation="@dimen/_20sdp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/facebookContinua"
+        app:srcCompat="@drawable/icontwitter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
