@@ -24,5 +24,5 @@ class ViewPagerAdapter (val items : ArrayList<Fragment> , activity: AppCompatAct
         return items[position]
     }
 
-
+//commento
 }
