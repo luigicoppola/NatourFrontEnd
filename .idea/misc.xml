@@ -4,7 +4,44 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/coppg/AndroidStudioProjects/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_filter.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_home.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_profile.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/drawable/ic_tabar.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_home.xml" value="0.2632146709816613" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.8" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_main2.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_recuperopsw.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_registrazione2.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/activity_resetpsw.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_add_navbar.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_aggiungi_menu.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_home_menu.xml" value="0.4" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_home_navbar.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_item_iniziale.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_popup_filtri.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_profile_navbar.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_profilo_menu.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/fragment_tre.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/menu_bottom_navigation.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/swipedue.xml" value="0.536" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/layout/swipeuno.xml" value="0.6" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.25" />
+        <entry key="..\:/Users/coppg/Desktop/NatourFrontEnd/app/src/main/res/menu/nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/backgroundregister.xml" value="0.13472222222222222" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/button_style.xml" value="0.2625" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/drawable/calendar.xml" value="0.23657407407407408" />
@@ -36,6 +73,9 @@
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/prove.xml" value="0.2" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/swipedue.xml" value="0.3510204081632653" />
         <entry key="..\:/Users/coppg/Desktop/Natour_FrontEnd/app/src/main/res/layout/swipeuno.xml" value="0.4" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/activity_main.xml" value="0.5083333333333333" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/activity_main2.xml" value="0.12708333333333333" />
       </map>
     </option>
   </component>

@@ -1,18 +1,19 @@
 package com.ingsftw.natourfrontend.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.ImageButton
 import androidx.fragment.app.DialogFragment
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.ingsftw.natourfrontend.R
 import com.ingsftw.natourfrontend.RestApi
+import com.ingsftw.natourfrontend.activities.HomeActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +34,7 @@ class PopupLogin: DialogFragment() {
         var rooterView: View = inflater.inflate(R.layout.activity_login, container, false)
 
 
-        var closeLink = rooterView.findViewById<TextView>(R.id.closeLink)
+        var closeLink = rooterView.findViewById<ImageButton>(R.id.closeButton)
 
 
         closeLink.setOnClickListener{
@@ -41,16 +42,21 @@ class PopupLogin: DialogFragment() {
         }
 
 
-        var accedi = rooterView.findViewById<Button>(R.id.accedi_button)
+        var accedi = rooterView.findViewById<Button>(R.id.loginButton)
 
 
 
 
 
         accedi.setOnClickListener{
-            var email = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
+            /*var email = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
             var passw = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
-            login(email,passw)
+            login(email,passw)*/
+            activity?.let{
+                val intent = Intent (it, HomeActivity::class.java)
+                it.startActivity(intent)
+            }
+
         }
 
 

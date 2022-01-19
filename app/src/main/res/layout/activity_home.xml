@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true" >>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_navigation">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="414dp"
-        android:layout_height="426dp"
-        android:background="@drawable/backgroundregister"
-        android:scaleType="fitXY"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-110dp" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_tabar"
+        app:itemIconSize="24dp"
+        app:itemIconTint="#43aca0"
+        app:itemTextColor="#43aca0"
+        app:labelVisibilityMode="labeled"
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/twitter"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="715dp" />
+        app:menu="@menu/menu_bottom_navigation"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -9,8 +9,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/backgrounImage"
-        android:layout_width="411dp"
-        android:layout_height="276dp"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
         android:adjustViewBounds="true"
         android:background="@drawable/backgroundregister"
         android:scaleType="fitXY"
@@ -27,9 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/backgrounImage"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="138dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="137dp"
         android:text="Registrati a NaTour"
         android:textColor="#00000F"
         android:textSize="30sp"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/intestazioneRegistrati"
 
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="30dp"
         android:layout_marginEnd="5dp"
         android:text="oppure"
         android:textColor="#00000F"
@@ -75,10 +75,10 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/intestazioneOppure"
 
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="25dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/indicator"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,36 +88,38 @@
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_17sdp"
+        android:layout_width="412dp"
+        android:layout_height="24dp"
         android:layout_below="@+id/view_pager2"
         android:scaleType="fitXY"
         app:ci_drawable="@drawable/navigationview"
         app:layout_constraintBottom_toTopOf="@+id/accedi_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_pager2">
 
     </me.relex.circleindicator.CircleIndicator3>
 
     <Button
         android:id="@+id/accedi_button"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_42sdp"
         android:layout_below="@id/indicator"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="43dp"
         android:layout_marginEnd="43dp"
-        android:layout_marginBottom="5dp"
         android:background="@drawable/button_style"
         android:scaleType="fitXY"
         android:text="Continua"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:elevation="@dimen/_20sdp"
-        app:layout_constraintBottom_toTopOf="@+id/intestazioneContinua"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
     <TextView
         android:id="@+id/intestazioneContinua"
@@ -126,12 +128,15 @@
         android:layout_below="@id/accedi_button"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="133dp"
+        android:layout_marginTop="29dp"
         android:layout_marginEnd="133dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="32dp"
         android:text="Oppure continua con ..."
         app:layout_constraintBottom_toTopOf="@+id/facebookContinua"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accedi_button" />
 
     <ImageButton
         android:id="@+id/facebookContinua"
@@ -141,7 +146,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="22dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="18dp"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"
         android:scaleType="fitXY"
@@ -159,7 +164,7 @@
 
         android:layout_marginStart="102dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="18dp"
         android:layout_toLeftOf="@id/facebookContinua"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"
@@ -177,7 +182,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="102dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="18dp"
         android:layout_toRightOf="@id/facebookContinua"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"

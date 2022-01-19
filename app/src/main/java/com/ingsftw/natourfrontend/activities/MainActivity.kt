@@ -4,6 +4,7 @@ package com.ingsftw.natourfrontend.activities
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Dialog
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -55,6 +56,7 @@ import android.view.View.MeasureSpec
 
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import androidx.fragment.app.FragmentTransaction
 
 
 class MainActivity : AppCompatActivity() {
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity() {
     enum class WindowSizeClass { COMPACT, MEDIUM, EXPANDED }
 
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -97,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        // -----------------  ACCESSO CON GOOGLE ------------------------
+        // /-----------------  ACCESSO CON GOOGLE ------------------------
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("909854952671-uj320lnridp9abd1scsd6307tro179nl.apps.googleusercontent.com")
             .requestEmail()
@@ -119,18 +122,21 @@ class MainActivity : AppCompatActivity() {
 
         var accedi = findViewById<TextView>(R.id.accediLinkText)
         accedi.setOnClickListener() {
-            var dialog = PopupLogin()
-            dialog.setStyle(STYLE_NO_FRAME, android.R.style.ThemeOverlay);
-            dialog.show(supportFragmentManager, "PopupLogin")
+        var dialog = PopupLogin()
+        dialog.setStyle(STYLE_NO_FRAME, android.R.style.ThemeOverlay);
+        dialog.show(supportFragmentManager, "PopupLogin")
+
         }
+
+
 
         // -------------------- FINE GESTIONE LOGIN --------------------------- //
 
         val viewPager: ViewPager2 = findViewById(R.id.view_pager2)
 
         val fragments: ArrayList<Fragment> = arrayListOf(
-           // SwipeItemUno(),
-            //SwipeItemDue()
+            SwipeItemUno(),
+            SwipeItemDue()
         )
 
         val adapter = ViewPagerAdapter(fragments, this)

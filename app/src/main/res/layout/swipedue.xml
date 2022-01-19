@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/regoleCheck"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="fragments.SwipeItemDue">
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardEmail"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_42sdp"
+
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="10dp"
 
-        app:cardCornerRadius="18dp"
 
-        app:cardElevation="3dp">
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
 
         <EditText
             android:id="@+id/nomeText"
@@ -30,51 +34,64 @@
             android:drawableLeft="@drawable/user"
             android:drawablePadding="@dimen/_10sdp"
             android:ems="10"
-            android:hint="NomeCompleto"
+            android:hint="Nome e Cognome"
             android:paddingLeft="@dimen/_10sdp" />
-
-
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardData"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_42sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
 
-        app:cardCornerRadius="18dp"
-        app:cardElevation="3dp">
+        android:layout_centerHorizontal="true"
+
+
+        android:layout_marginTop="15dp"
+
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardEmail">
+
 
         <EditText
             android:id="@+id/dataNascita"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_42sdp"
-            android:layout_below="@+id/passwordText"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
             android:drawableLeft="@drawable/calendar"
             android:drawablePadding="@dimen/_10sdp"
             android:ems="10"
-            android:hint="Data di Nascita"
-            android:inputType="date"
+            android:hint="Data Nascita"
             android:paddingLeft="@dimen/_10sdp" />
-
-
     </androidx.cardview.widget.CardView>
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_102sdp"
+        android:layout_width="188dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="157dp"
         android:text="Accetto Termini e Condizioni"
-        android:textColor="#9E9E9E" />
+        android:textColor="#9E9E9E"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardData" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
