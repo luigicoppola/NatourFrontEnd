@@ -36,15 +36,6 @@ class HomeActivity : AppCompatActivity(){
 
 
 
-
-
-
-
-
-
-
-
-
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNav)
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {

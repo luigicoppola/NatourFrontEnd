@@ -5,106 +5,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".activities.MainActivity">
+
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/backgrounImage"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:background="@drawable/backgroundregister"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
     </androidx.appcompat.widget.AppCompatImageView>
 
-
     <TextView
         android:id="@+id/intestazioneRegistrati"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/backgrounImage"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="137dp"
         android:text="Registrati a NaTour"
         android:textColor="#00000F"
         android:textSize="30sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/intestazioneOppure"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backgrounImage" />
 
     <TextView
         android:id="@+id/intestazioneOppure"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/intestazioneRegistrati"
 
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="24dp"
         android:text="oppure"
         android:textColor="#00000F"
         android:textSize="20sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/accediLinkText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intestazioneRegistrati" />
 
     <TextView
         android:id="@+id/accediLinkText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/intestazioneRegistrati"
 
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="265dp"
+        android:layout_marginStart="7dp"
         android:text="accedi"
         android:textColor="#26D8C3"
         android:textSize="20sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/intestazioneOppure"
         app:layout_constraintTop_toBottomOf="@+id/intestazioneRegistrati" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/intestazioneOppure"
 
         android:layout_marginTop="25dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/indicator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intestazioneOppure" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="24dp"
         android:layout_below="@+id/view_pager2"
         android:scaleType="fitXY"
         app:ci_drawable="@drawable/navigationview"
-        app:layout_constraintBottom_toTopOf="@+id/accedi_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_pager2">
 
     </me.relex.circleindicator.CircleIndicator3>
 
     <Button
         android:id="@+id/accedi_button"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_42sdp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:layout_below="@id/indicator"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="43dp"
@@ -114,10 +103,8 @@
         android:text="Continua"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        app:elevation="@dimen/_20sdp"
-
+        app:elevation="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
@@ -126,70 +113,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/accedi_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="133dp"
-        android:layout_marginBottom="32dp"
+
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="125dp"
         android:text="Oppure continua con ..."
-        app:layout_constraintBottom_toTopOf="@+id/facebookContinua"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accedi_button" />
 
     <ImageButton
         android:id="@+id/facebookContinua"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/twitterContinua"
         app:layout_constraintStart_toEndOf="@+id/googleContinua"
+        app:layout_constraintTop_toBottomOf="@+id/intestazioneContinua"
         app:srcCompat="@drawable/iconfacebook" />
 
     <ImageButton
         android:id="@+id/googleContinua"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginStart="102dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:layout_toLeftOf="@id/facebookContinua"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/facebookContinua"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intestazioneContinua"
         app:srcCompat="@drawable/icongoogle" />
 
     <ImageButton
         android:id="@+id/twitterContinua"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="96dp"
         android:layout_toRightOf="@id/facebookContinua"
         android:background="#00FFFFFF"
         android:elevation="@dimen/_20sdp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/facebookContinua"
+        app:layout_constraintTop_toBottomOf="@+id/intestazioneContinua"
         app:srcCompat="@drawable/icontwitter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.ingsftw.natourfrontend.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
-import androidx.fragment.app.DialogFragment
+import android.widget.TextView
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import com.ingsftw.natourfrontend.R
+
 import com.ingsftw.natourfrontend.RestApi
 import com.ingsftw.natourfrontend.activities.HomeActivity
 import kotlinx.coroutines.CoroutineScope
@@ -22,8 +24,12 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Retrofit
+import android.R
+import androidx.fragment.app.*
+
 
 class PopupLogin: DialogFragment() {
+    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,20 +37,20 @@ class PopupLogin: DialogFragment() {
     ): View? {
 
 
-        var rooterView: View = inflater.inflate(R.layout.activity_login, container, false)
+        var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.activity_login, container, false)
 
 
-        var closeLink = rooterView.findViewById<ImageButton>(R.id.closeButton)
+        var closeLink = rooterView.findViewById<ImageButton>(com.ingsftw.natourfrontend.R.id.closeButton)
 
-
+        var accedi = rooterView.findViewById<Button>(com.ingsftw.natourfrontend.R.id.loginButton)
         closeLink.setOnClickListener{
             dismiss()
         }
 
 
-        var accedi = rooterView.findViewById<Button>(R.id.loginButton)
 
 
+      //  var recupero_psw = rooterView.findViewById<TextView>(R.id.intestazioneDimenticata)
 
 
 
@@ -58,6 +64,15 @@ class PopupLogin: DialogFragment() {
             }
 
         }
+
+
+
+
+
+
+
+
+
 
 
 

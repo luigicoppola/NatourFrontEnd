@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.OrientationHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.ingsftw.natourfrontend.R
-import com.ingsftw.natourfrontend.adapters.HorizontalAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [homeFragment.newInstance] factory method to
+ * Use the [PopupRecuperoPsw.newInstance] factory method to
  * create an instance of this fragment.
  */
-class homeFragment : Fragment() {
+class PopupRecuperoPsw : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,36 +35,7 @@ class homeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_home_menu, container, false)
-
-        //creating recycler val
-        val recycler = rooterView.findViewById<RecyclerView>(R.id.recycler)
-
-        //creating a  arraylist of data
-        val data: ArrayList<String> = ArrayList()
-
-        for(i in 1..10){
-            data.add("Post # $i")
-        }
-
-
-
-
-        //setting recycler to horizontal scroll
-        recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-
-
-
-
-
-        //setting adapter to recycler
-        recycler.adapter = HorizontalAdapter(data)
-
-
-
-
-        return rooterView
+        return inflater.inflate(R.layout.fragment_popup_recupero_psw, container, false)
     }
 
 
@@ -80,12 +47,12 @@ class homeFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment homeFragment.
+         * @return A new instance of fragment PopupRecuperoPsw.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            homeFragment().apply {
+            PopupRecuperoPsw().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

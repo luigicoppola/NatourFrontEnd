@@ -34,18 +34,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPswAttuale"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_42sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
 
 
+        android:layout_marginStart="43dp"
         android:layout_marginTop="150dp"
+        android:layout_marginEnd="43dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="7dp"
@@ -56,8 +55,8 @@
 
         <EditText
             android:id="@+id/pswResetText"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
@@ -70,14 +69,16 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPasswordNuova"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_42sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
 
 
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="43dp"
 
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="43dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="7dp"
@@ -88,8 +89,8 @@
 
         <EditText
             android:id="@+id/newPasswordText"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
@@ -100,19 +101,20 @@
             android:paddingLeft="@dimen/_10sdp" />
 
 
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPasswordConfermaNuova"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_42sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
 
 
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="43dp"
 
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="43dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="7dp"
@@ -123,8 +125,8 @@
 
         <EditText
             android:id="@+id/confermaPasswordText"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
@@ -133,7 +135,6 @@
             android:ems="10"
             android:hint="Conferma nuova password"
             android:paddingLeft="@dimen/_10sdp" />
-
 
 
     </androidx.cardview.widget.CardView>

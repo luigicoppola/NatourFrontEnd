@@ -56,6 +56,7 @@ import android.view.View.MeasureSpec
 
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.WindowManager
 import androidx.fragment.app.FragmentTransaction
 
 
@@ -78,6 +79,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+    getWindow().setFlags(
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+    );
+
 
 
         /*val item = findViewById<View>(R.id.registrazioneLayout) as ConstraintLayout
