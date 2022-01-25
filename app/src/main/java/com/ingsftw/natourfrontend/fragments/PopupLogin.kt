@@ -66,20 +66,14 @@ class PopupLogin: DialogFragment() {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         return rooterView
 
     }
+
+
+
+
+
 
     private fun login(email: String, passw : String) {
         // Create Retrofit

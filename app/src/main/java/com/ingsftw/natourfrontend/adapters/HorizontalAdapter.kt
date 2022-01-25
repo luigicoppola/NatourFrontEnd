@@ -3,23 +3,25 @@ package com.ingsftw.natourfrontend.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.ingsftw.natourfrontend.R
-import com.squareup.picasso.Picasso
+import com.ingsftw.natourfrontend.dto.ItinerarioDto
 
 
-
-
-class HorizontalAdapter(val data: ArrayList<String>) :
+class HorizontalAdapter(val data: ArrayList<ItinerarioDto>) :
     RecyclerView.Adapter<HorizontalAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: HorizontalAdapter.ViewHolder, position: Int) {
-      holder.firstName.text = data[position]
+        holder.titolo.text = data[position].nome
+        holder.durata.text = data[position].durata.toString()
+        holder.punteggio.text = data[position].punteggio.toString()
+        holder.difficolta.text = data[position].difficolta.toString()
+
+
+
     }
 
 
@@ -38,10 +40,12 @@ class HorizontalAdapter(val data: ArrayList<String>) :
 
 
 
-
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val firstName: TextView = itemView.findViewById(R.id.textView2)
+        val titolo: TextView = itemView.findViewById(R.id.titoloText)
+        val durata: TextView = itemView.findViewById(R.id.durataText)
+        val punteggio: TextView = itemView.findViewById(R.id.punteggioText)
+        val difficolta: TextView = itemView.findViewById(R.id.difficoltaText)
+
     }
 
 

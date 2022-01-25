@@ -1,15 +1,35 @@
 package com.ingsftw.natourfrontend.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import com.ingsftw.natourfrontend.R
+import com.ingsftw.natourfrontend.RestApi
 import com.ingsftw.natourfrontend.adapters.HorizontalAdapter
+import com.ingsftw.natourfrontend.dto.ItinerarioDto
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONArray
+import org.json.JSONObject
+import retrofit2.Retrofit
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +45,13 @@ class homeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val gsonMapper = Gson()
+
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +69,50 @@ class homeFragment : Fragment() {
 
         var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_home_menu, container, false)
 
-        //creating recycler val
-        val recycler = rooterView.findViewById<RecyclerView>(R.id.recycler)
+
 
         //creating a  arraylist of data
-        val data: ArrayList<String> = ArrayList()
 
-        for(i in 1..10){
-            data.add("Post # $i")
+
+        itinerariApi(rooterView)
+
+
+
+
+
+
+
+
+
+        return rooterView
+    }
+
+    private fun createItinerari( listaItinerari : Array<ItinerarioDto> , rooterView: View) {
+
+        val recycler = rooterView.findViewById<RecyclerView>(R.id.recycler)
+
+        val data: ArrayList<ItinerarioDto> = ArrayList()
+
+
+
+
+
+
+        for(i in 1..listaItinerari.size){
+
+
+            var itinerario = ItinerarioDto(
+                listaItinerari[i-1].id,
+                listaItinerari[i-1].nome,
+                listaItinerari[i-1].durata,
+                listaItinerari[i-1].difficolta,
+                listaItinerari[i-1].punteggio,
+                listaItinerari[i-1].coordinate,
+                listaItinerari[i-1].utente
+            )
+            data.add(itinerario)
+
+
         }
 
 
@@ -67,10 +130,68 @@ class homeFragment : Fragment() {
 
 
 
-
-        return rooterView
     }
 
+
+    private fun itinerariApi(rootView: View) {
+        // Create Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8080/")
+            .build()
+
+        // Create Service
+        val service = retrofit.create(RestApi::class.java)
+
+
+
+
+
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.itinerariAPI()
+
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+
+                    // Convert raw JSON to pretty JSON using GSON library
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(
+                            response.body()
+                                ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
+                        )
+                    )
+
+                    Log.d("Pretty Printed JSON :", prettyJson) //ci sei?si e perchè non parlixk si sente l'eco basta mutare tviewaer
+                    val jsonArray = JSONObject(prettyJson).getJSONArray("data")
+                    val itemType = object : TypeToken<Array<ItinerarioDto>>() {}.type
+                    val itinerari = this@homeFragment.gsonMapper.fromJson<Array<ItinerarioDto>>(jsonArray.toString(), itemType)
+
+
+                    println(itinerari.toString())
+                    createItinerari(itinerari,rootView)
+                    Log.e("Errore: ",itinerari.toString())
+
+
+
+
+
+                    // var titolo = findViewById<TextView>(R.layout.layout_card.titoloText)
+
+
+                } else {
+
+                    Log.e("RETROFIT_ERROR", response.code().toString())
+
+                }
+
+
+            }
+
+
+        }
+    }
 
 
     companion object {
