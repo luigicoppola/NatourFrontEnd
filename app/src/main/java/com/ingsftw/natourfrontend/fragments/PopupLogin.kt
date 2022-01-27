@@ -26,6 +26,7 @@ import org.json.JSONObject
 import retrofit2.Retrofit
 import android.R
 import androidx.fragment.app.*
+import com.ingsftw.natourfrontend.activities.MainActivity
 
 
 class PopupLogin: DialogFragment() {
@@ -48,20 +49,27 @@ class PopupLogin: DialogFragment() {
         }
 
 
+        var email = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.emailText).text.toString()
+        var passw = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.passwordText).text.toString()
+
+         var recupero_psw = rooterView.findViewById<TextView>(com.ingsftw.natourfrontend.R.id.intestazioneDimenticata)
 
 
-      //  var recupero_psw = rooterView.findViewById<TextView>(R.id.intestazioneDimenticata)
 
+        recupero_psw.setOnClickListener{
+
+            PopupRecuperoPsw().show(
+                childFragmentManager, "fragment")
+
+
+
+        }
 
 
         accedi.setOnClickListener{
-            /*var email = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
-            var passw = rooterView.findViewById<EditText>(R.id.passwordText).text.toString()
-            login(email,passw)*/
-            activity?.let{
-                val intent = Intent (it, HomeActivity::class.java)
-                it.startActivity(intent)
-            }
+
+            login(email,passw)
+
 
         }
 
@@ -116,11 +124,19 @@ class PopupLogin: DialogFragment() {
                     )
 
                     Log.d("Pretty Printed JSON :", prettyJson)
+                    activity?.let{
+                        val intent = Intent (it, HomeActivity::class.java)
+                        it.startActivity(intent)
+                    }
 
 
                 } else {
 
                     Log.e("RETROFIT_ERROR", response.code().toString())
+                    activity?.let{
+                        val intent = Intent (it, MainActivity::class.java)
+                        it.startActivity(intent)
+                    }
 
                 }
             }

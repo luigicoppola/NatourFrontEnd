@@ -2,12 +2,6 @@ package com.ingsftw.natourfrontend.activities
 
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
-import android.app.Dialog
-import android.app.PendingIntent.getActivity
-import android.content.Context
-import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -25,39 +19,17 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Retrofit
-import android.net.Uri
-import android.os.Build
-import android.view.View
-import android.view.ViewGroup
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.window.layout.WindowMetricsCalculator
 import com.facebook.*
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 import com.ingsftw.natourfrontend.*
 import com.ingsftw.natourfrontend.adapters.ViewPagerAdapter
 import com.ingsftw.natourfrontend.fragments.PopupLogin
 import com.ingsftw.natourfrontend.fragments.SwipeItemDue
 import com.ingsftw.natourfrontend.fragments.SwipeItemUno
-import com.ingsftw.natourfrontend.utils.TwitterConstants
 import kotlinx.coroutines.*
-import twitter4j.Twitter
-import twitter4j.TwitterFactory
-import twitter4j.conf.ConfigurationBuilder
-import android.widget.RelativeLayout
-import android.view.View.MeasureSpec
 
-import android.graphics.drawable.Drawable
-import android.util.AttributeSet
 import android.view.WindowManager
-import androidx.fragment.app.FragmentTransaction
 
 
 class MainActivity : AppCompatActivity() {
@@ -82,11 +54,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    getWindow().setFlags(
-        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-    );
-
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
 
 
         /*val item = findViewById<View>(R.id.registrazioneLayout) as ConstraintLayout
@@ -100,15 +71,7 @@ class MainActivity : AppCompatActivity() {
 */
 
 
-
-
-
         // ---------------- FINE LAYOUT ---------------------
-
-
-
-
-
 
 
         // /-----------------  ACCESSO CON GOOGLE ------------------------
@@ -133,12 +96,11 @@ class MainActivity : AppCompatActivity() {
 
         var accedi = findViewById<TextView>(R.id.accediLinkText)
         accedi.setOnClickListener() {
-        var dialog = PopupLogin()
-        dialog.setStyle(STYLE_NO_FRAME, android.R.style.ThemeOverlay);
-        dialog.show(supportFragmentManager, "PopupLogin")
+            var dialog = PopupLogin()
+            dialog.setStyle(STYLE_NO_FRAME, android.R.style.ThemeOverlay);
+            dialog.show(supportFragmentManager, "PopupLogin")
 
         }
-
 
 
         // -------------------- FINE GESTIONE LOGIN --------------------------- //
@@ -159,7 +121,10 @@ class MainActivity : AppCompatActivity() {
         //val registrazioneButton = findViewById(R.id.accedi_button) as Button
 
 
-        var email_input = findViewById<EditText>(R.id.passwordText)
+        var email_input = findViewById<EditText>(R.id.emailText)
+        /* var passw_input = findViewById<EditText>(R.id.passwordText)
+        var nomeCompleto_input = findViewById<EditText>(R.id.nomeText)
+        var dataNascita_input = findViewById<EditText>(R.id.dataNascita)*/
 
         var continua = findViewById<Button>(R.id.accedi_button)
 
@@ -205,24 +170,29 @@ class MainActivity : AppCompatActivity() {
         continua.setOnClickListener {
 
 
-            if (findViewById<EditText>(R.id.passwordText) != null) {
-                email = findViewById<EditText>(R.id.passwordText).text.toString()
-                email_input = findViewById<EditText>(R.id.passwordText)
+            if (findViewById<EditText>(R.id.emailText) != null) {
+                email = findViewById<EditText>(R.id.emailText).text.toString()
+                email_input = findViewById<EditText>(R.id.emailText)
 
             }
 
-            if (findViewById<EditText>(R.id.passwordText) != null)
+            if (findViewById<EditText>(R.id.passwordText) != null) {
                 passw = findViewById<EditText>(R.id.passwordText).text.toString()
+                // passw_input = findViewById<EditText>(R.id.passwordText)
+            }
 
 
-            if (findViewById<EditText>(R.id.nomeText) != null)
+            if (findViewById<EditText>(R.id.nomeText) != null) {
                 nomeCompleto = findViewById<EditText>(R.id.nomeText).text.toString()
+                //nomeCompleto_input = findViewById<EditText>(R.id.nomeText)
+            }
 
 
 
-            if (findViewById<EditText>(R.id.dataNascita) != null)
+            if (findViewById<EditText>(R.id.dataNascita) != null) {
                 dataNascita = findViewById<EditText>(R.id.dataNascita).text.toString()
-
+                //dataNascita_input = findViewById<EditText>(R.id.dataNascita)
+            }
 
 
 
@@ -236,47 +206,44 @@ class MainActivity : AppCompatActivity() {
 
                 if (email == "") {
                     //
+                    email_input.setError("Campo mancante")
 
 
                 }
 
                 if (passw == "") {
-                    //
+                    // passw_input.setError("Campo mancante")
+
 
                 }
 
                 if (nomeCompleto == "") {
-                    // Toast.makeText(this,"Email mancante.",Toast.LENGTH_LONG).show()
+                    //nomeCompleto_input.setError("Campo mancante")
+
 
                 }
 
                 if (dataNascita == "") {
-                    // Toast.makeText(this,"Email mancante.",Toast.LENGTH_LONG).show()
+                    // dataNascita_input.setError("Campo mancante")
+
 
                 }
 
-                //                createUser(email,passw,nomeCompleto,dataNascita)
+                if(email!=""&&passw!=""&&nomeCompleto!=""&&dataNascita!="")
+                creaUtente(email, passw, nomeCompleto, dataNascita)
 
             }
 
 
         }
 
-
-        //FUNZIONI FB
-
-
-        //FUNZIONI GOOGLE
-
-/*
     }
-*/
 
 
         // -------------------- FUNZIONI REGISTRAZIONE ------------------------ //
 
 
-        fun createUser(email: String, passw: String, nomeCompleto: String, dataNascita: String) {
+        fun creaUtente(email: String, passw: String, nomeCompleto: String, dataNascita: String) {
 
             // Create Retrofit
             val retrofit = Retrofit.Builder()
@@ -329,26 +296,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun computeWindowSizeClasses() {
-        val metrics = WindowMetricsCalculator.getOrCreate()
-            .computeCurrentWindowMetrics(this)
-
-        val widthDp = metrics.bounds.width() /
-                resources.displayMetrics.density
-        val widthWindowSizeClass = when {
-            widthDp < 600f -> WindowSizeClass.COMPACT
-            widthDp < 840f -> WindowSizeClass.MEDIUM
-            else -> WindowSizeClass.EXPANDED
-        }
-
-        val heightDp = metrics.bounds.height() /
-                resources.displayMetrics.density
-        val heightWindowSizeClass = when {
-            heightDp < 480f -> WindowSizeClass.COMPACT
-            heightDp < 900f -> WindowSizeClass.MEDIUM
-            else -> WindowSizeClass.EXPANDED
-        }
-    }}
 
 // ------------- FUNZIONI TWITTER -------------------------
 /*lateinit var twitter: Twitter

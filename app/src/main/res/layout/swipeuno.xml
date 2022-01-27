@@ -8,7 +8,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardEmail"
+        android:id="@+id/cardNomeItinerario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:background="@drawable/edittext_style"
             android:drawableLeft="@drawable/sms"
-            android:drawablePadding="@dimen/_10sdp"
+            android:drawablePadding="5dp"
             android:ems="10"
             android:hint="Email"
             android:paddingLeft="@dimen/_10sdp" />
@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardEmail">
+        app:layout_constraintTop_toBottomOf="@+id/cardNomeItinerario">
 
 
         <EditText

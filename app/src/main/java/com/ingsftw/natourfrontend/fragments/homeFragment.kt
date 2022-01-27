@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -77,7 +80,20 @@ class homeFragment : Fragment() {
         itinerariApi(rooterView)
 
 
+      //      GESTIONE POPUP FILTRI
 
+        var filtro = rooterView.findViewById<ImageButton>(R.id.filterButton)
+
+
+        filtro.setOnClickListener{
+            val sortRecipesBottomSheet = BottomSheetFiltri()
+            sortRecipesBottomSheet.show(childFragmentManager,sortRecipesBottomSheet.tag)
+        }
+
+
+
+
+        // FINE POPUP FILTRI
 
 
 

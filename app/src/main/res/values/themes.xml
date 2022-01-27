@@ -27,7 +27,25 @@
     </style>
 
 
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
 
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/drawable_round_bottom_sheet</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
+    </style>
+
+
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light">
+        <item name="dialogTheme">@style/my_dialogTheme</item>
+    </style>
+    <style name="my_dialogTheme" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>
 
 
