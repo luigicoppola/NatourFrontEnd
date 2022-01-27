@@ -122,9 +122,9 @@ class MainActivity : AppCompatActivity() {
 
 
         var email_input = findViewById<EditText>(R.id.emailText)
-        /* var passw_input = findViewById<EditText>(R.id.passwordText)
+        var passw_input = findViewById<EditText>(R.id.passwordText)
         var nomeCompleto_input = findViewById<EditText>(R.id.nomeText)
-        var dataNascita_input = findViewById<EditText>(R.id.dataNascita)*/
+        var dataNascita_input = findViewById<EditText>(R.id.dataNascita)
 
         var continua = findViewById<Button>(R.id.accedi_button)
 
@@ -157,6 +157,7 @@ class MainActivity : AppCompatActivity() {
                     positionOffset: Float,
                     positionOffsetPixels: Int
                 ) {
+
                     super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 }
             })
@@ -173,8 +174,7 @@ class MainActivity : AppCompatActivity() {
             if (findViewById<EditText>(R.id.emailText) != null) {
                 email = findViewById<EditText>(R.id.emailText).text.toString()
                 email_input = findViewById<EditText>(R.id.emailText)
-
-            }
+                }
 
             if (findViewById<EditText>(R.id.passwordText) != null) {
                 passw = findViewById<EditText>(R.id.passwordText).text.toString()
@@ -200,39 +200,45 @@ class MainActivity : AppCompatActivity() {
             viewPager.setCurrentItem(1, true)
 
 
-
+/*
             if (continua.getText() == "Registrati") {
 
 
-                if (email == "") {
-                    //
-                    email_input.setError("Campo mancante")
+                if (email == "")
+                    email_input.setBackgroundResource(R.drawable.editexterror_style)
+                else
+                    email_input.setBackgroundResource(R.drawable.edittext_style)
 
 
-                }
-
-                if (passw == "") {
-                    // passw_input.setError("Campo mancante")
 
 
-                }
 
-                if (nomeCompleto == "") {
-                    //nomeCompleto_input.setError("Campo mancante")
-
-
-                }
-
-                if (dataNascita == "") {
-                    // dataNascita_input.setError("Campo mancante")
+                if (passw == "")
+                    passw_input.setBackgroundResource(R.drawable.editexterror_style)
+                else
+                    passw_input.setBackgroundResource(R.drawable.edittext_style)
 
 
-                }
+
+
+                if (nomeCompleto == "")
+                    nomeCompleto_input.setBackgroundResource(R.drawable.editexterror_style)
+                else
+                    nomeCompleto_input.setBackgroundResource(R.drawable.edittext_style)
+
+
+
+                if (dataNascita == "")
+                    dataNascita_input.setBackgroundResource(R.drawable.editexterror_style)
+                else
+                    dataNascita_input.setBackgroundResource(R.drawable.edittext_style)
+
 
                 if(email!=""&&passw!=""&&nomeCompleto!=""&&dataNascita!="")
-                creaUtente(email, passw, nomeCompleto, dataNascita)
+                    creaUtente(email, passw, nomeCompleto, dataNascita)
 
-            }
+
+            }*/
 
 
         }

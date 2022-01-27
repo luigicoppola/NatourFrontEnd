@@ -1,11 +1,18 @@
 package com.ingsftw.natourfrontend.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
+import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProviders
 import com.ingsftw.natourfrontend.R
+import com.ingsftw.natourfrontend.dto.UserDto
+import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,10 +24,11 @@ private const val ARG_PARAM2 = "param2"
  * Use the [profiloFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class profiloFragment : Fragment() {
+class profiloFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var inputText: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +43,37 @@ class profiloFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profilo_menu, container, false)
+
+        var rooterView: View = inflater.inflate(R.layout.fragment_profilo_menu, container, false)
+
+        val user = this.arguments?.getParcelable<UserDto>("user") ?: throw RuntimeException("Utente non presente")
+
+
+
+
+
+        val emailUtenteRicevuta = rooterView.findViewById<TextView>(R.id.emailProfilo)
+        val passwUtenteRicevuta = rooterView.findViewById<TextView>(R.id.passwProfilo)
+        val nomeCompletoUtenteRicevuta = rooterView.findViewById<TextView>(R.id.nomeCompletoText)
+
+
+
+        emailUtenteRicevuta.setText(user.userEmail)
+        passwUtenteRicevuta.setText(user.userPassword)
+        nomeCompletoUtenteRicevuta.setText(user.userFullName)
+
+
+
+
+
+
+
+
+
+
+
+
+        return rooterView
     }
 
     companion object {

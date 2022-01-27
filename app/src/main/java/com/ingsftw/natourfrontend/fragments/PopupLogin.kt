@@ -26,11 +26,23 @@ import org.json.JSONObject
 import retrofit2.Retrofit
 import android.R
 import androidx.fragment.app.*
+import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
+import com.google.gson.Gson
 import com.ingsftw.natourfrontend.activities.MainActivity
+import com.ingsftw.natourfrontend.dto.ItinerarioDto
+import com.ingsftw.natourfrontend.dto.UserDto
+import com.ingsftw.natourfrontend.utils.Communicator
 
 
 class PopupLogin: DialogFragment() {
-    @SuppressLint("ResourceType")
+
+    private val gsonMapper = Gson()
+    private lateinit var comm: Communicator
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,8 +61,6 @@ class PopupLogin: DialogFragment() {
         }
 
 
-        var email = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.emailText).text.toString()
-        var passw = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.passwordText).text.toString()
 
          var recupero_psw = rooterView.findViewById<TextView>(com.ingsftw.natourfrontend.R.id.intestazioneDimenticata)
 
@@ -67,8 +77,10 @@ class PopupLogin: DialogFragment() {
 
 
         accedi.setOnClickListener{
+            var email = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.emailText).text.toString()
+            var passw = rooterView.findViewById<EditText>(com.ingsftw.natourfrontend.R.id.passwordText).text.toString()
 
-            login(email,passw)
+            login(email,passw,rooterView)
 
 
         }
@@ -83,7 +95,7 @@ class PopupLogin: DialogFragment() {
 
 
 
-    private fun login(email: String, passw : String) {
+    private fun login(email: String, passw : String, rooterView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
             .baseUrl("http://10.0.2.2:8080/")
@@ -124,9 +136,30 @@ class PopupLogin: DialogFragment() {
                     )
 
                     Log.d("Pretty Printed JSON :", prettyJson)
+
+                    val jsonArray = JSONObject(prettyJson).getJSONObject("data")
+                    val itemType = object : TypeToken<UserDto>() {}.type
+                    val utente = this@PopupLogin.gsonMapper.fromJson<UserDto>(jsonArray.toString(), itemType)
+                    println(utente.toString())
+
+
+
+                    Log.d("UtenteEmail: ",utente.userEmail.toString())
+
+
+
+                    var emailUserRegistrato = utente
+
+
+
+
+
+
                     activity?.let{
                         val intent = Intent (it, HomeActivity::class.java)
+                        intent.putExtra("data",emailUserRegistrato)
                         it.startActivity(intent)
+
                     }
 
 
@@ -139,8 +172,19 @@ class PopupLogin: DialogFragment() {
                     }
 
                 }
+
+
+
+
+
             }
+
         }
+
     }
 
+
+
+
 }
+

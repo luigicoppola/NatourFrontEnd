@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +45,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [homeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class homeFragment : Fragment() {
+class homeFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -179,7 +180,7 @@ class homeFragment : Fragment() {
                         )
                     )
 
-                    Log.d("Pretty Printed JSON :", prettyJson) //ci sei?si e perchè non parlixk si sente l'eco basta mutare tviewaer
+                    Log.d("Pretty Printed JSON :", prettyJson)
                     val jsonArray = JSONObject(prettyJson).getJSONArray("data")
                     val itemType = object : TypeToken<Array<ItinerarioDto>>() {}.type
                     val itinerari = this@homeFragment.gsonMapper.fromJson<Array<ItinerarioDto>>(jsonArray.toString(), itemType)

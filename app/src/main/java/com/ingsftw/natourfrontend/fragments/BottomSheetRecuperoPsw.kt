@@ -16,14 +16,7 @@ class BottomSheetRecuperoPsw: BottomSheetDialogFragment() {
     ): View? {
 
         setStyle(DialogFragment.STYLE_NORMAL, com.ingsftw.natourfrontend.R.style.AppBottomSheetDialogTheme)
-
-
         var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_popup_recupero_psw, container, false)
-
-
-
-
-
         return rooterView
     }
 

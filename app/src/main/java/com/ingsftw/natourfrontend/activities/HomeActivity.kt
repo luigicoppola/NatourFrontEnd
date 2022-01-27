@@ -9,14 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ingsftw.natourfrontend.R
+import com.ingsftw.natourfrontend.dto.UserDto
 import com.ingsftw.natourfrontend.fragments.*
+import java.lang.RuntimeException
 
 class HomeActivity : AppCompatActivity(){
 
     private val homeFragment = homeFragment()
     private val aggiungiFragment = BottomSheetAggiungi()
     private val profiloFragment = profiloFragment()
-
+    private lateinit var userDto : UserDto
 
 
 
@@ -27,6 +29,10 @@ class HomeActivity : AppCompatActivity(){
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_home)
 
+            this.userDto = intent.getParcelableExtra("data") ?: throw RuntimeException("Utente non trovato")
+
+
+
 
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNav)
 
@@ -34,7 +40,11 @@ class HomeActivity : AppCompatActivity(){
                 when (it.itemId) {
                     R.id.menu_home -> replaceFragment(homeFragment)
                     R.id.menu_search -> replacePopup(aggiungiFragment)
-                    R.id.menu_profile -> replaceFragment(profiloFragment)
+                   R.id.menu_profile ->{
+                        val bundle = Bundle()
+                        bundle.putParcelable("user",this.userDto)
+                        profiloFragment.arguments=bundle
+                        replaceFragment(profiloFragment)}
                 }
 
                 true

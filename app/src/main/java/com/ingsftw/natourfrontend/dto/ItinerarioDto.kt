@@ -1,6 +1,8 @@
 package com.ingsftw.natourfrontend.dto
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.Serializable
 import java.util.*
 
@@ -27,6 +29,7 @@ data class CoordinataDto(
 
 
 @Serializable
+@Parcelize
 data class UserDto (
     @SerializedName("id") val id: Int,
     @SerializedName("email") val userEmail: String,
@@ -36,4 +39,4 @@ data class UserDto (
     @SerializedName("enable") val enable: Boolean,
     @SerializedName("token") val token: String
 
- ){}
+ ) : Parcelable {}
