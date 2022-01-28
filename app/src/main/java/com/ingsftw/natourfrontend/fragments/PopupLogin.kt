@@ -98,7 +98,7 @@ class PopupLogin: DialogFragment() {
     private fun login(email: String, passw : String, rooterView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
+            .baseUrl("http://192.168.1.8:8080/")
             .build()
 
         // Create Service

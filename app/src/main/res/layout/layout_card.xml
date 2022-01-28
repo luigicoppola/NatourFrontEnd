@@ -78,6 +78,16 @@
             android:text="n"
             android:textSize="13sp" />
 
+        <ToggleButton
+            android:id="@+id/myToggleButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textOff="OFF"
+            android:textOn="ON" />
+
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

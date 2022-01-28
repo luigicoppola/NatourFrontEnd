@@ -83,9 +83,13 @@
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/editexterror_style.xml" value="0.1295" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/edittext_style.xml" value="0.16644951140065148" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/gradientbackground.xml" value="0.133" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_arrow_right.xml" value="0.2195" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_clock.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_heart.xml" value="0.214" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_home.xml" value="0.22777777777777777" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_icon_difficulty.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2195" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_medal_star.xml" value="0.2195" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_profile.xml" value="0.22777777777777777" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/drawable/ic_star.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.264" />
@@ -106,7 +110,7 @@
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/fragment_popup_manuale.xml" value="0.264" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/fragment_popup_recupero_psw.xml" value="0.264" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/fragment_popup_recupero_psw2.xml" value="0.12158054711246201" />
-        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/fragment_profilo_menu.xml" value="0.2418478260869565" />
+        <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/fragment_profilo_menu.xml" value="0.4" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/layout_bottomsheet_aggiungi.xml" value="0.25" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/layout_bottomsheet_filtri.xml" value="0.536" />
         <entry key="..\:/Users/coppg/Documents/GitHub/NatourFrontEnd/app/src/main/res/layout/layout_card.xml" value="0.536" />

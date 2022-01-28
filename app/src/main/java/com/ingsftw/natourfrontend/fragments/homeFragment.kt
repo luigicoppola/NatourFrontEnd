@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,6 +73,21 @@ class homeFragment : DialogFragment() {
         // Inflate the layout for this fragment
 
         var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_home_menu, container, false)
+
+
+        // ----------------- ITINERARI PREFERITI -----------------------------//
+
+
+
+
+        //-------------FINE ITINERARI PREFERITI ----------------------------- //
+
+
+
+
+
+
+
 
 
 
@@ -153,7 +169,7 @@ class homeFragment : DialogFragment() {
     private fun itinerariApi(rootView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
+            .baseUrl("http://192.168.1.8:8080/")
             .build()
 
         // Create Service

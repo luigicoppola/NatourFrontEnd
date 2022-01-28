@@ -52,14 +52,14 @@ class profiloFragment : DialogFragment() {
 
 
 
-        val emailUtenteRicevuta = rooterView.findViewById<TextView>(R.id.emailProfilo)
-        val passwUtenteRicevuta = rooterView.findViewById<TextView>(R.id.passwProfilo)
+        val emailUtenteRicevuta = rooterView.findViewById<TextView>(R.id.emailTextModificabile)
+        //val passwUtenteRicevuta = rooterView.findViewById<TextView>(R.id.passwProfilo)
         val nomeCompletoUtenteRicevuta = rooterView.findViewById<TextView>(R.id.nomeCompletoText)
 
 
 
         emailUtenteRicevuta.setText(user.userEmail)
-        passwUtenteRicevuta.setText(user.userPassword)
+        //passwUtenteRicevuta.setText(user.userPassword)
         nomeCompletoUtenteRicevuta.setText(user.userFullName)
 
 
