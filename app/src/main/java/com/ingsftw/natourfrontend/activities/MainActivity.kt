@@ -103,6 +103,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+
         // -------------------- FINE GESTIONE LOGIN --------------------------- //
 
         val viewPager: ViewPager2 = findViewById(R.id.view_pager2)

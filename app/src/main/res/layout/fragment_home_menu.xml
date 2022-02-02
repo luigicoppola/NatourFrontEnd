@@ -1,82 +1,178 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fixedHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8f9fb"
+    android:paddingBottom="10dp"
+
+    android:orientation="vertical"
     tools:context="fragments.homeFragment">
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/homeTextIntestazione"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="304dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="Home"
         android:textColor="#000000"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.SearchView
-
-        android:id="@+id/simpleSearchView"
-        android:layout_width="308dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="46dp"
-        android:background="@drawable/edittext_style"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search here"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <ImageButton
-        android:id="@+id/filterButton"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#00000000"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_filter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/intestazionePreferiti"
+    <LinearLayout
+        android:id="@+id/searchLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="1dp"
-        android:text="I miei preferiti"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleSearchView"
-        app:layout_constraintVertical_bias="0.26" />
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        <SearchView
+            android:id="@+id/searchItinerari"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edittext_style"
+            android:iconifiedByDefault="false"
+
+            android:queryHint="hint"
+            app:defaultQueryHint="hint"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="hint" />
+
+        <ImageButton
+            android:id="@+id/filterButton"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/itinerariScroll"
         android:layout_width="match_parent"
-        android:layout_height="290dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intestazionePreferiti"
-        tools:listitem="@layout/layout_card" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:paddingBottom="30dp">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+
+            <TextView
+                android:id="@+id/intestazioneEvidenza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp"
+                android:text="In evidenza"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/recycler"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/simpleSearchView"
+                app:layout_constraintVertical_bias="0.26" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:padding="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intestazioneEvidenza"
+                tools:listitem="@layout/layout_card" />
+
+
+            <TextView
+                android:id="@+id/intestazionePersonali"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:text="I miei itinerari"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerPersonali"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:padding="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intestazionePersonali"
+                tools:listitem="@layout/layout_card" />
+
+
+            <TextView
+                android:id="@+id/intestazioneVicini"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:text="I più vicini"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="55dp"
+                tools:layout_editor_absoluteY="1074dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerVicini"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:padding="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intestazionePersonali"
+                tools:listitem="@layout/layout_card" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>
+
+
+
+    <!--
+
+    -->
+
+
+

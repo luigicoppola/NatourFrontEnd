@@ -1,7 +1,7 @@
 package com.ingsftw.natourfrontend.utils
 
 
-interface Communicator {
+interface Communicator : CommunicationInterface {
 
     fun passDataCom(editTextInput: String)
 

@@ -1,17 +1,15 @@
 package com.ingsftw.natourfrontend.activities
 
 import android.os.Bundle
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ingsftw.natourfrontend.R
 import com.ingsftw.natourfrontend.dto.UserDto
 import com.ingsftw.natourfrontend.fragments.*
-import java.lang.RuntimeException
+
 
 class HomeActivity : AppCompatActivity(){
 
@@ -20,13 +18,15 @@ class HomeActivity : AppCompatActivity(){
     private val profiloFragment = profiloFragment()
     private lateinit var userDto : UserDto
 
-
+    var radioGroup: RadioGroup? = null
+    lateinit var radioButton: RadioButton
 
 
 
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             setContentView(R.layout.activity_home)
 
             this.userDto = intent.getParcelableExtra("data") ?: throw RuntimeException("Utente non trovato")
@@ -34,7 +34,22 @@ class HomeActivity : AppCompatActivity(){
 
 
 
-            val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNav)
+
+
+
+
+
+
+
+
+
+
+
+
+            replaceFragment(homeFragment)
+
+            val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNav) as BottomNavigationView
+            bottomNavigationView.selectedItemId = R.id.menu_home
 
             bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
@@ -49,14 +64,14 @@ class HomeActivity : AppCompatActivity(){
 
                 true
             }
-
-
-
-
-
-
-
         }
+
+
+    fun clicked(text: String?) {
+        val b: homeFragment = fragmentManager.findFragmentById(R.id.fixedHome) as homeFragment
+        b.changeText(text);
+    }
+
 
     private fun replacePopup(aggiungiFragment: BottomSheetAggiungi) {
         val sortRecipesBottomSheet = BottomSheetAggiungi()

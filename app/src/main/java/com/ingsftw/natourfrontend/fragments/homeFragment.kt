@@ -1,19 +1,21 @@
 package com.ingsftw.natourfrontend.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.ToggleButton
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.FacebookSdk
+import com.facebook.FacebookSdk.getApplicationContext
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
@@ -24,6 +26,7 @@ import com.ingsftw.natourfrontend.R
 import com.ingsftw.natourfrontend.RestApi
 import com.ingsftw.natourfrontend.adapters.HorizontalAdapter
 import com.ingsftw.natourfrontend.dto.ItinerarioDto
+import com.ingsftw.natourfrontend.utils.CommunicationInterface
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,20 +44,30 @@ import retrofit2.Retrofit
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+
+
+
+
 /**
  * A simple [Fragment] subclass.
  * Use the [homeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class homeFragment : DialogFragment() {
+open class homeFragment : DialogFragment(){
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var inflaterClass : LayoutInflater
+    private lateinit var containerClass : ViewGroup
+
+
 
     private val gsonMapper = Gson()
 
+    var radioGroup: RadioGroup? = null
+    lateinit var radioButton: RadioButton
 
-
+    private lateinit var listener : CommunicationInterface
 
 
 
@@ -64,7 +77,17 @@ class homeFragment : DialogFragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+
     }
+
+
+
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -110,8 +133,16 @@ class homeFragment : DialogFragment() {
 
 
 
+
+
         // FINE POPUP FILTRI
 
+
+
+        val searchView= rooterView.findViewById<SearchView>(R.id.searchItinerari)
+        val args = this.arguments
+        val inputData= args?.get("data")
+        searchView.setQueryHint(inputData.toString())
 
 
 
@@ -123,6 +154,10 @@ class homeFragment : DialogFragment() {
     private fun createItinerari( listaItinerari : Array<ItinerarioDto> , rooterView: View) {
 
         val recycler = rooterView.findViewById<RecyclerView>(R.id.recycler)
+        val recyclerEvidenza = rooterView.findViewById<RecyclerView>(R.id.recyclerPersonali)
+        val recyclerVicini = rooterView.findViewById<RecyclerView>(R.id.recyclerVicini)
+
+
 
         val data: ArrayList<ItinerarioDto> = ArrayList()
 
@@ -153,13 +188,19 @@ class homeFragment : DialogFragment() {
 
         //setting recycler to horizontal scroll
         recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-
-
-
-
-
-        //setting adapter to recycler
+         //setting adapter to recycler
         recycler.adapter = HorizontalAdapter(data)
+
+        //setting recycler to horizontal scroll
+        recyclerEvidenza.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+        //setting adapter to recycler
+        recyclerEvidenza.adapter = HorizontalAdapter(data)
+
+
+        //setting recycler to horizontal scroll
+        recyclerVicini.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+        //setting adapter to recycler
+        recyclerVicini.adapter = HorizontalAdapter(data)
 
 
 
@@ -169,7 +210,7 @@ class homeFragment : DialogFragment() {
     private fun itinerariApi(rootView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.8:8080/")
+            .baseUrl("http://10.0.2.2:8080/")
             .build()
 
         // Create Service
@@ -246,4 +287,6 @@ class homeFragment : DialogFragment() {
                 }
             }
     }
+
+
 }

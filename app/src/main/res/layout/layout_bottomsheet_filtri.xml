@@ -2,69 +2,204 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/underButton"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
     tools:context=".fragments.BottomSheetFiltri"
-    android:paddingBottom="8dp">
+    >
+
+
+
+     <!--   <TextView
+            android:id="@+id/ordinaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="80dp"
+            android:text="Ordina per"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/durataTextFiltri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="18dp"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawablePadding="13dp"
+            android:text="Durata"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ordinaText" />
+
+        <TextView
+            android:id="@+id/difficoltaTextFiltri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="14dp"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawablePadding="13dp"
+            android:text="Difficoltà"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/durataTextFiltri" />
+
+        <TextView
+            android:id="@+id/preferitiTextFiltri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawablePadding="13dp"
+            android:text="Preferiti"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/difficoltaTextFiltri" />
+
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="180dp"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <RadioGroup
+            android:id="@+id/filtriGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/areaRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:checked="true"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/difficoltaRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:checked="true"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:textColor="#000000"
+                />
+
+            <RadioButton
+                android:id="@+id/durataRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+
+                android:drawableRight="@android:drawable/btn_radio"
+                android:checked="true"
+
+                android:textColor="#000000"
+                />
+
+            <RadioButton
+                android:id="@+id/disabiliRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:checked="true"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:textColor="#000000"
+                />
+
+        </RadioGroup>
+
+    <Button
+        android:id="@+id/applicaFiltriButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/button_style"
+        android:text="APPLICA FILTRI"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filtriGroup" />
+
 
     <TextView
-        android:id="@+id/ordinaText"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="28dp"
-        android:text="Ordina per"
-        android:textColor="#000000"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="64dp"
+        android:text="Area Geografica"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/closeBottomSheetFiltri"
-        android:layout_width="11dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="242dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ordinaText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/close" />
-
     <TextView
-        android:id="@+id/durataTextFiltri"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="18dp"
-        android:drawableLeft="@drawable/ic_clock"
-        android:drawablePadding="13dp"
-        android:text="Durata"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ordinaText" />
-
-    <TextView
-        android:id="@+id/difficoltaTextFiltri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
-        android:drawableLeft="@drawable/ic_clock"
-        android:drawablePadding="13dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="27dp"
         android:text="Difficoltà"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/durataTextFiltri" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/preferitiTextFiltri"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:drawableLeft="@drawable/ic_clock"
-        android:drawablePadding="13dp"
-        android:text="Preferiti"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="28dp"
+        android:text="Durata"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficoltaTextFiltri" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="28dp"
+        android:text="Servizio disabili"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="140dp"
+        android:text="Filtra per . . . "
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
