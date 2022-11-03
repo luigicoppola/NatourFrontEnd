@@ -21,6 +21,14 @@ interface RestApi {
 
     @GET("itinerario/all")
     suspend fun itinerariAPI(): Response<ResponseBody>
+
+    @POST("itinerario/add")
+    suspend fun createItinerarioManuale(@Body requestBody: RequestBody) : Response<ResponseBody>
+
+
+
+
+
 }
 
 

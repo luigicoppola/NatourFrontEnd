@@ -12,6 +12,10 @@ import com.ingsftw.natourfrontend.dto.ItinerarioDto
 class HorizontalAdapter(val data: ArrayList<ItinerarioDto>) :
     RecyclerView.Adapter<HorizontalAdapter.ViewHolder>() {
 
+
+
+
+
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: HorizontalAdapter.ViewHolder, position: Int) {
@@ -21,20 +25,9 @@ class HorizontalAdapter(val data: ArrayList<ItinerarioDto>) :
         holder.difficolta.text = data[position].difficolta.toString()
 
 
-
     }
 
 
-
-
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): HorizontalAdapter.ViewHolder {
-       val view: View = LayoutInflater.from(parent.context).inflate(R.layout.layout_card,parent,false)
-        return ViewHolder(view)
-    }
 
 
 
@@ -46,7 +39,17 @@ class HorizontalAdapter(val data: ArrayList<ItinerarioDto>) :
         val punteggio: TextView = itemView.findViewById(R.id.punteggioText)
         val difficolta: TextView = itemView.findViewById(R.id.difficoltaText)
 
+
     }
 
 
-}
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view: View= LayoutInflater.from(parent.context).inflate(R.layout.layout_card,parent,false )
+
+        return ViewHolder(view)
+
+
+
+    }
+
+    }

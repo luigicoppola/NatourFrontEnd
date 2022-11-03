@@ -1,29 +1,25 @@
 package com.ingsftw.natourfrontend.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.DialogFragment
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.facebook.FacebookSdk
-import com.facebook.FacebookSdk.getApplicationContext
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.ingsftw.natourfrontend.R
 import com.ingsftw.natourfrontend.RestApi
+import com.ingsftw.natourfrontend.SearchActivity
 import com.ingsftw.natourfrontend.adapters.HorizontalAdapter
 import com.ingsftw.natourfrontend.dto.ItinerarioDto
 import com.ingsftw.natourfrontend.utils.CommunicationInterface
@@ -31,12 +27,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.Retrofit
-
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -95,7 +87,7 @@ open class homeFragment : DialogFragment(){
     ): View? {
         // Inflate the layout for this fragment
 
-        var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_home_menu, container, false)
+        var rooterView: View = inflater.inflate(com.ingsftw.natourfrontend.R.layout.fragment_home_scroll, container, false)
 
 
         // ----------------- ITINERARI PREFERITI -----------------------------//
@@ -114,10 +106,13 @@ open class homeFragment : DialogFragment(){
 
 
 
+
+
+
         //creating a  arraylist of data
 
 
-        itinerariApi(rooterView)
+       itinerariApi(rooterView)
 
 
       //      GESTIONE POPUP FILTRI
@@ -126,8 +121,13 @@ open class homeFragment : DialogFragment(){
 
 
         filtro.setOnClickListener{
-            val sortRecipesBottomSheet = BottomSheetFiltri()
-            sortRecipesBottomSheet.show(childFragmentManager,sortRecipesBottomSheet.tag)
+           //val sortRecipesBottomSheet = BottomSheetFiltri()
+           // sortRecipesBottomSheet.show(childFragmentManager,sortRecipesBottomSheet.tag)
+            val intent = Intent (context, SearchActivity::class.java)
+            startActivity(intent)
+
+
+
         }
 
 
@@ -139,10 +139,31 @@ open class homeFragment : DialogFragment(){
 
 
 
+
+
+        //GESTIONE CARDS
+
+
+
+
+
+        //FINE GESTIONE CARDS
+
+
+
         val searchView= rooterView.findViewById<SearchView>(R.id.searchItinerari)
         val args = this.arguments
         val inputData= args?.get("data")
         searchView.setQueryHint(inputData.toString())
+
+
+    searchView.setOnSearchClickListener(){
+        var search_fragment = profiloFragment()
+        getParentFragmentManager().beginTransaction().add(R.id.layout_profilo, search_fragment)
+            .commit()
+    }
+
+
 
 
 
@@ -151,12 +172,14 @@ open class homeFragment : DialogFragment(){
         return rooterView
     }
 
+
+
+
     private fun createItinerari( listaItinerari : Array<ItinerarioDto> , rooterView: View) {
 
-        val recycler = rooterView.findViewById<RecyclerView>(R.id.recycler)
-        val recyclerEvidenza = rooterView.findViewById<RecyclerView>(R.id.recyclerPersonali)
-        val recyclerVicini = rooterView.findViewById<RecyclerView>(R.id.recyclerVicini)
-
+        val recycler = rooterView.findViewById<RecyclerView>(R.id.recyclerInEvidenza)
+        val recyclerVicinanze = rooterView.findViewById<RecyclerView>(R.id.recyclerVicinanze)
+        val recyclerPreferiti = rooterView.findViewById<RecyclerView>(R.id.recyclerPreferiti)
 
 
         val data: ArrayList<ItinerarioDto> = ArrayList()
@@ -175,7 +198,7 @@ open class homeFragment : DialogFragment(){
                 listaItinerari[i-1].durata,
                 listaItinerari[i-1].difficolta,
                 listaItinerari[i-1].punteggio,
-                listaItinerari[i-1].coordinate,
+                //listaItinerari[i-1].coordinate,
                 listaItinerari[i-1].utente
             )
             data.add(itinerario)
@@ -192,15 +215,17 @@ open class homeFragment : DialogFragment(){
         recycler.adapter = HorizontalAdapter(data)
 
         //setting recycler to horizontal scroll
-        recyclerEvidenza.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+        recyclerVicinanze.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         //setting adapter to recycler
-        recyclerEvidenza.adapter = HorizontalAdapter(data)
+        recyclerVicinanze.adapter = HorizontalAdapter(data)
 
 
         //setting recycler to horizontal scroll
-        recyclerVicini.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+       recyclerPreferiti.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         //setting adapter to recycler
-        recyclerVicini.adapter = HorizontalAdapter(data)
+        recyclerPreferiti.adapter = HorizontalAdapter(data)
+
+
 
 
 
@@ -210,15 +235,13 @@ open class homeFragment : DialogFragment(){
     private fun itinerariApi(rootView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
+            .baseUrl("http://192.168.1.18:8080/") // change this IP for testing by your actual machine IP
+            //.baseUrl("http://192.168.1.3:8082/")
+
             .build()
 
         // Create Service
         val service = retrofit.create(RestApi::class.java)
-
-
-
-
 
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -242,10 +265,17 @@ open class homeFragment : DialogFragment(){
                     val itemType = object : TypeToken<Array<ItinerarioDto>>() {}.type
                     val itinerari = this@homeFragment.gsonMapper.fromJson<Array<ItinerarioDto>>(jsonArray.toString(), itemType)
 
+                    var listener: ((itinerari: Array<ItinerarioDto>) -> Unit)? = null
+
+
+
 
                     println(itinerari.toString())
                     createItinerari(itinerari,rootView)
-                    Log.e("Errore: ",itinerari.toString())
+
+
+
+                   // Log.e("Errore qui --- : ",itinerari.toString())
 
 
 
@@ -262,6 +292,8 @@ open class homeFragment : DialogFragment(){
 
 
             }
+
+
 
 
         }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.DialogFragment
 import com.ingsftw.natourfrontend.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,7 +40,27 @@ class PopupFiltri : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_home_scroll, container, false)
+
+        var rooterView: View = inflater.inflate(
+            com.ingsftw.natourfrontend.R.layout.fragment_home_scroll,
+            container,
+            false
+        )
+
+
+        var distanzaMin = rooterView.findViewById<TextView>(R.id.AreaGeograficaTextModificabile)
+
+        val args = this.arguments
+        val inputData = args?.get("data")
+
+        distanzaMin.text = inputData.toString()
+
+
+
+    return rooterView
+
+
+}
 
 
 
@@ -49,7 +70,6 @@ class PopupFiltri : Fragment() {
 
 
 
-    }
 
     companion object {
         /**

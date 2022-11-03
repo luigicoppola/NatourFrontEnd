@@ -6,10 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.ingsftw.natourfrontend.R
 
 
 class BottomSheetAggiungi: BottomSheetDialogFragment() {
@@ -27,7 +31,12 @@ class BottomSheetAggiungi: BottomSheetDialogFragment() {
 
         var manuale = rooterView.findViewById<TextView>(com.ingsftw.natourfrontend.R.id.manualeTextAggiungi)
 
+        var closeBottomSheet = rooterView.findViewById<ImageButton>(R.id.closeBottomSheetAdd)
 
+
+        closeBottomSheet.setOnClickListener{
+            dismiss()
+        }
 
 
 

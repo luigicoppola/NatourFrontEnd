@@ -4,44 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragments.BottomSheetAggiungi">
+    tools:context=".fragments.BottomSheetAggiungi"
 
-android:paddingBottom="8dp">
+    android:background="@drawable/drawable_round_bottom_sheet"
+
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="90dp"
+
+    android:elevation="56dp"
+    android:layout_marginBottom="50dp"
+
+    app:layout_anchorGravity="bottom"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+
+    android:clipToPadding="false"
+    android:paddingBottom="20dp" >
+
 
     <TextView
         android:id="@+id/AggiungiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="28dp"
-        android:text="Aggiungi"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Aggiungi Itinerario"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/closeBottomSheetFiltri"
-        android:layout_width="11dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="242dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/AggiungiText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/close" />
-
     <TextView
         android:id="@+id/manualeTextAggiungi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="18dp"
-        android:drawableLeft="@drawable/ic_clock"
+        android:layout_width="232dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:color="#0f3444"
+        android:drawableLeft="@android:drawable/ic_menu_add"
         android:drawablePadding="13dp"
-        android:text="Manuale"
+        android:drawableTint="#26d8c3"
+        android:text="Inserimento manuale"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AggiungiText" />
 
@@ -50,12 +55,26 @@ android:paddingBottom="8dp">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
-        android:drawableLeft="@drawable/ic_clock"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:drawableLeft="@android:drawable/ic_menu_mylocation"
         android:drawablePadding="13dp"
+        android:drawableTint="#26d8c3"
         android:text="Traccia con GPS"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manualeTextAggiungi" />
+
+    <ImageButton
+        android:id="@+id/closeBottomSheetAdd"
+        android:layout_width="29dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

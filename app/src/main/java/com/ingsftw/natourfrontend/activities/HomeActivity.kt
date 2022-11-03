@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ingsftw.natourfrontend.R
@@ -55,6 +56,7 @@ class HomeActivity : AppCompatActivity(){
                 when (it.itemId) {
                     R.id.menu_home -> replaceFragment(homeFragment)
                     R.id.menu_search -> replacePopup(aggiungiFragment)
+
                    R.id.menu_profile ->{
                         val bundle = Bundle()
                         bundle.putParcelable("user",this.userDto)
@@ -67,15 +69,13 @@ class HomeActivity : AppCompatActivity(){
         }
 
 
-    fun clicked(text: String?) {
-        val b: homeFragment = fragmentManager.findFragmentById(R.id.fixedHome) as homeFragment
-        b.changeText(text);
-    }
+
 
 
     private fun replacePopup(aggiungiFragment: BottomSheetAggiungi) {
         val sortRecipesBottomSheet = BottomSheetAggiungi()
         sortRecipesBottomSheet.show(supportFragmentManager,sortRecipesBottomSheet.tag)
+        sortRecipesBottomSheet.setStyle(STYLE_NORMAL, R.style.BottomSheetDialogStyle);
     }
 
     private fun replaceFragment(fragment: Fragment){

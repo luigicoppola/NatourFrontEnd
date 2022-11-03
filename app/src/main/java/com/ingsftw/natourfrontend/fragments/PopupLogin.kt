@@ -1,6 +1,5 @@
 package com.ingsftw.natourfrontend.fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,12 +23,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Retrofit
-import android.R
 import androidx.fragment.app.*
-import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import com.ingsftw.natourfrontend.activities.MainActivity
 import com.ingsftw.natourfrontend.dto.ItinerarioDto
 import com.ingsftw.natourfrontend.dto.UserDto
 import com.ingsftw.natourfrontend.utils.Communicator
@@ -98,7 +94,13 @@ class PopupLogin: DialogFragment() {
     private fun login(email: String, passw : String, rooterView: View) {
         // Create Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
+
+
+             .baseUrl("http://192.168.1.18:8080/") // change this IP for testing by your actual machine IP
+            //.baseUrl("http://192.168.1.4:8080")
+
+
+             //.baseUrl("http://192.168.1.3:8082/")
             .build()
 
         // Create Service
@@ -141,16 +143,21 @@ class PopupLogin: DialogFragment() {
 
                     val jsonArray = JSONObject(prettyJson).getJSONObject("data")
                     val itemType = object : TypeToken<UserDto>() {}.type
+
+
+
                     val utente = this@PopupLogin.gsonMapper.fromJson<UserDto>(jsonArray.toString(), itemType)
-                    println(utente.toString())
 
 
 
-                    Log.d("UtenteEmail: ",utente.userEmail.toString())
+                   // Log.e("UTENTE---->",UserDto.)
+
 
 
 
                     var emailUserRegistrato = utente
+
+                    println(emailUserRegistrato.toString())
 
 
 
@@ -168,10 +175,7 @@ class PopupLogin: DialogFragment() {
                 } else {
 
                     Log.e("RETROFIT_ERROR", response.code().toString())
-                    activity?.let{
-                        val intent = Intent (it, MainActivity::class.java)
-                        it.startActivity(intent)
-                    }
+
 
                 }
 

@@ -124,8 +124,8 @@
 
     <ImageButton
         android:id="@+id/facebookContinua"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -141,8 +141,8 @@
 
     <ImageButton
         android:id="@+id/googleContinua"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
 
@@ -154,14 +154,15 @@
         android:elevation="@dimen/_20sdp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toStartOf="@+id/facebookContinua"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intestazioneContinua"
         app:srcCompat="@drawable/icongoogle" />
 
     <ImageButton
         android:id="@+id/twitterContinua"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@id/intestazioneContinua"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
@@ -175,5 +176,6 @@
         app:layout_constraintStart_toEndOf="@+id/facebookContinua"
         app:layout_constraintTop_toBottomOf="@+id/intestazioneContinua"
         app:srcCompat="@drawable/icontwitter" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
